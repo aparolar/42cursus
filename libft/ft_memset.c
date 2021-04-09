@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:53:37 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/09 13:56:45 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/09 16:45:02 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ void	*ft_memset(void *b, int c, size_t len)
 	size_t	i;
 	char	*p_b;
 
-	if (!len)
-		return (NULL);
 	p_b = (char *)b;
 	i = 0;
 	while (i < len)
 	{
-		p_b[i] = (char)c;
+		p_b[i] = (unsigned char)c;
 		i++;
 	}
-	return (p_b);
+	return (b);
 }
