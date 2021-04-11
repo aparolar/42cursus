@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:53:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/09 11:15:59 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/11 14:08:53 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,13 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*p_s;
 
-	if (!s)
-		return (NULL);
-	p_s = (char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (p_s[i] == (char)c)
-			return (p_s + i);
+		if (((char *)s)[i] == (char)c)
+			return (((char *)s) + i);
+		i++;
 	}
 	return (NULL);
 }

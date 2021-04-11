@@ -6,18 +6,14 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/09 11:13:20 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/11 16:47:34 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <unistd.h>
 # include <stddef.h>
-# include <stdio.h>
-# include <stdint.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);

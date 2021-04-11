@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:54:45 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/09 11:01:50 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/11 13:05:17 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	char	*p_src;
 	char	*p_dst;
 
-	if (!src || !dst)
-		return (NULL);
 	p_src = (char *)src;
 	p_dst = (char *)dst;
 	i = 0;
