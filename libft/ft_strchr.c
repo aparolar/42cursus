@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:34:09 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/09 11:39:22 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/12 09:57:05 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strchr(const char *s, int c)
 	p_s = (char *)s;
 	i = 0;
 	len = ft_strlen(s);
+	if (!c)
+		return (p_s + len);
 	while (i < len)
 	{
 		if (p_s[i] == (char)c)

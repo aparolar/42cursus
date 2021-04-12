@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/09 12:00:11 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/12 11:15:07 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC			= ft_bzero.c \
 			  ft_strnstr.c \
 			  ft_strrchr.c \
 			  ft_tolower.c \
-			  ft_toupper.c
+			  ft_toupper.c \
+			  ft_strncmp.c
 
 OBJS		=	$(SRC:.c=.o)
 

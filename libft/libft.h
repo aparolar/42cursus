@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/11 16:47:34 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/12 11:54:27 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		ft_isdigit(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

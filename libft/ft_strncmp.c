@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 15:53:37 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 18:23:24 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/12 11:07:43 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/12 17:20:57 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-/*
-** puts char c value into b pointer along de len chars
-** returns b pointer
-*/
-
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	char	*p_b;
+	size_t	ls1;
+	size_t	ls2;
 
-	p_b = (unsigned char *)b;
-	i = 0;
-	while (i < len)
+	ls1 = ft_strlen(s1);
+	ls2 = ft_strlen(s2);
+	if ((!ls1 && !ls2) || !n)
+		return (0);
+	if (!ls1)
+		return (-1);
+	if (!ls2)
+		return (1);
+	if (ls1 < n || ls2 < n)
 	{
-		p_b[i] = (unsigned char)c;
-		i++;
+		if (ls1 >= ls2)
+			n = ls1;
+		else
+			n = ls2;
 	}
-	return (b);
+	return (ft_memcmp(s1, s2, n));
 }
