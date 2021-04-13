@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:48:14 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 22:29:00 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:31:03 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -22,17 +21,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	i = 0;
 	lh = ft_strlen(haystack);
 	ln = ft_strlen(needle);
-	if (!len || haystack == needle)
+	if (haystack == needle || !ln)
 		return ((char *)haystack);
-	if (ln > lh && lh < len)
+	if ((ln > lh && lh < len) || lh < ln)
 		return (NULL);
-	while (i < lh && lh - i > len)
+	while ((i < len && (len - i) >= ln))
 	{
-		//printf("len = %lu i = %lu string = %s\n", len, i, ((char *)haystack) + i);
-		if (!ft_strncmp(((char *)haystack) + i, needle, len))
+		if (!ft_strncmp(((char *)haystack) + i, needle, ln))
 			return (((char *)haystack) + i);
 		i++;
 	}
 	return (NULL);
 }
-

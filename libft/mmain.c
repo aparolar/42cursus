@@ -1,13 +1,18 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	main(void)
+int	main(void)
 {
-	char *s1 = "atoms\0\0\0\0";
-	char *s2 = "atoms\0abc";
-	int len = 8;
-	int i = 0;
+	char	*s1;
+	char	*s2;
+	size_t	len;
+	char	*i;
 
+	s1 = "MZIRIBMZIRIBMZE123";
+	s2 = "MZIRIBMZE";
+	len = ft_strlen(s2);
 	printf("Iniciando\n");
-	i = ft_strncmp(s1, s2, len);
+	i = ft_strnstr(s1, s2, len);
+	printf("%s\n", i);
+	return (0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
+#    By: aparolar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/12 11:15:07 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/13 17:09:31 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,15 +28,18 @@ SRC			= ft_bzero.c \
 			  ft_strrchr.c \
 			  ft_tolower.c \
 			  ft_toupper.c \
-			  ft_strncmp.c
+			  ft_strncmp.c \
+			  ft_strnstr.c \
+			  ft_strlcpy.c \
+			  ft_strlcat.c
 
 OBJS		=	$(SRC:.c=.o)
 
-CC			=	gcc $(FLAGS) -I.
+CC			=	gcc $(FLAGS) -I. 
 
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -g
 
-NAME		= libft.a
+NAME		=	libft.a
 
 all:		$(NAME)
 
@@ -45,6 +48,10 @@ $(NAME):	$(OBJS)
 
 clean:
 			rm -f $(OBJS)
+
+test:		re
+			$(CC) mmain.c libft.a -o a.out
+			./a.out
 
 fclean:		clean
 			rm -f $(NAME)
