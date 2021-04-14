@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 16:16:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 23:14:56 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/08 15:53:05 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/11 14:08:53 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+/*
+** return the position + 1 of (char) c into the s only
+** stops if superated n positions if s is null pointer
+** returns NULL or not finded de char in the string
+*/
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (c);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (((char *)s)[i] == (char)c)
+			return (((char *)s) + i);
+		i++;
+	}
+	return (NULL);
 }

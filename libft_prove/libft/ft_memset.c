@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 16:16:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 23:14:56 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/08 15:53:37 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/12 20:04:56 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+/*
+** puts char c value into b pointer along de len chars
+** returns b pointer
+*/
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (c);
-	return (0);
+	size_t	i;
+	char	*p_b;
+
+	p_b = (char *)b;
+	i = 0;
+	while (i < len)
+	{
+		p_b[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
