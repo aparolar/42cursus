@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 20:20:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 09:51:33 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/16 17:01:26 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 17:07:32 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_itoa(int n)
 {
-	void	*ptr;
+	int	no;
+	int	len;
 
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_memset(ptr, 0, count * size);
-	return (ptr);
+	no = n;
+	while (no > 0)
+	{
+		no /= 10;
+		len++;
+	}
 }

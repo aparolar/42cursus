@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 20:20:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 09:51:33 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/16 10:55:08 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 13:40:13 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*ptr;
+	size_t	slen;
+	char	*s2;
 
-	ptr = malloc(count * size);
-	if (!ptr)
+	if (!s)
 		return (0);
-	ft_memset(ptr, 0, count * size);
-	return (ptr);
+	slen = ft_strlen(s);
+	if (start > slen)
+		return (ft_calloc(1, 1));
+	if (slen < start + len)
+		len = slen - start;
+	s2 = ft_calloc(len + 1, 1);
+	if (s2)
+		return (ft_memcpy(s2, s + start, len));
+	return (0);
 }

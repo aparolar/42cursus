@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/15 18:04:13 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/16 17:01:08 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
+# include <unistd.h>
+
 # define MAX_INT 2147483647
-# define MIN_INT -2147483647
+# define MIN_INT -2147483648
+
+/*
+**  Part 1
+*/
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -42,7 +48,20 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_calloc(size_t count, size_t size);
 int		ft_atoi(const char *str);
+char	*ft_strdup(const char *s1);
+
+/*
+**  Part 2
+*/
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+char	*ft_itoa(int n);
 
 #endif

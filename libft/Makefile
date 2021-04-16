@@ -6,7 +6,7 @@
 #    By: aparolar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/15 14:07:17 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/16 09:34:53 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc $(FLAGS) -I. 
 
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -g
 
 NAME		=	libft.a
 

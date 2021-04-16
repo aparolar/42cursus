@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 20:20:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 09:51:33 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/16 13:50:29 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 16:34:40 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*ptr;
+	char	*pt;
+	char	*fs1;
+	size_t	s1len;
+	size_t	setlen;
 
-	ptr = malloc(count * size);
-	if (!ptr)
+	if (!s1 || !set)
 		return (0);
-	ft_memset(ptr, 0, count * size);
-	return (ptr);
+	s1len = ft_strlen(s1);
+	setlen = ft_strlen(set);
+	fs1 = (char *)s1 + s1len;
+	while (s1 < fs1 && ft_strchr(set, *s1))
+		s1++;
+	while (fs1 >= s1 && ft_strchr(set, *fs1))
+		fs1--;
+	pt = (char *)ft_calloc(fs1 - s1 + 2, 1);
+	if (pt && ft_memcpy(pt, s1, fs1 - s1 + 1))
+	{
+		return (pt);
+	}
+	else
+		return (0);
 }

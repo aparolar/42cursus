@@ -2,14 +2,12 @@
 
 int	main(void)
 {
-	//char	*s1;
-	//char	*s2;
-	//size_t	len;
+	char str[] = "123";
+	char str2[] = "";
+	//size_t size = 10;
+	char	*ret;
 
-	//s1 = "MZIRIBMZIRIBMZE123";
-	//s2 = "MZIRIBMZE";
-	//size_t i = ft_strlcat(s1, s2, ft_strlen(s1) + 4);
-	//printf("Iniciando\n");
-	//printf("%s <> %s <> %lu <> %lu <> %s\n", s1, s2, i, ft_strlen(s1), s1);
+    ret = ft_strtrim(str, str2);
+	printf("%s", ret);
 	return (0);
 }
