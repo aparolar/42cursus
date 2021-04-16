@@ -4,16 +4,18 @@
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
-		
-
 		{
 			"preLaunchTask": "build",
-			"name": "(lldb) Adjuntar",
+			"name": "(gdb) Iniciar",
 			"type": "cppdbg",
-			"request": "attach",
+			"request": "launch",
 			"program": "${workspaceFolder}/a.out",
-			"processId": "${command:pickProcess}",
-			"MIMode": "lldb"
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb"
 		},
 		{
 			"preLaunchTask": "build",
@@ -29,4 +31,5 @@
 			"MIMode": "lldb"
 		}
 	]
+
 }

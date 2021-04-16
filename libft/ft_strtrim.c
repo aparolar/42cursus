@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:50:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 16:34:40 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/16 23:04:24 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*pt;
 	char	*fs1;
 	size_t	s1len;
-	size_t	setlen;
 
 	if (!s1 || !set)
 		return (0);
 	s1len = ft_strlen(s1);
-	setlen = ft_strlen(set);
 	fs1 = (char *)s1 + s1len;
 	while (s1 < fs1 && ft_strchr(set, *s1))
 		s1++;
