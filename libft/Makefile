@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/16 21:52:51 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/17 16:01:54 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ clean:
 test:		re
 			$(CC) -g libft.a -o a.out
 			./a.out
+			rm -f *.o
 
 so:		re
 		$(CC) -fPIC $(CFLAGS) $(SRCS)

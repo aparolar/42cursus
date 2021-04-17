@@ -2,13 +2,9 @@
 
 int	main(void)
 {
-	/*char str[] = "123";
-	char str2[] = "";
-	//size_t size = 10;
-	char	*ret;
+	char	*str;
 
-    ret = ft_strtrim(str, str2);*/
-	ft_itoa(-5550);
-	//printf("%s", ret);
+	str = ft_itoa(MIN_INT);
+	printf("%s", str);
 	return (0);
 }

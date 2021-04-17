@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 17:01:26 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/17 16:10:50 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/17 16:16:01 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
 	int		len;
 	long	no;
-	char	*pr;
+	char	str[11];
 
-	no = n;
-	len = ft_intlen(n);
-	if (n < 0)
-		len++;
-	pr = (char *)ft_calloc(len + 1, 1);
-	if (!pr)
-		return (0);
-	while (len > 0)
-	{	
+	if (fd)
+	{
+		no = n;
+		len = ft_intlen(n);
 		if (n < 0)
-			pr[len - 1] = -(n % 10) + 48;
-		else
-			pr[len - 1] = (n % 10) + 48;
-		n /= 10;
-		len--;
+			len++;
+		while (len > 0)
+		{	
+			if (n < 0)
+				str[len - 1] = -(n % 10) + 48;
+			else
+				str[len - 1] = (n % 10) + 48;
+			n /= 10;
+			len--;
+		}
+		if (no < 0)
+			str[0] = '-';
+		ft_putstr_fd(str, fd);
 	}
-	if (no < 0)
-		*pr = '-';
-	return (pr);
 }

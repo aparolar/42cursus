@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 17:01:26 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/17 16:10:50 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/17 16:26:26 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/17 16:35:22 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		len;
-	long	no;
-	char	*pr;
+	unsigned int	i;
+	char			*ns;
 
-	no = n;
-	len = ft_intlen(n);
-	if (n < 0)
-		len++;
-	pr = (char *)ft_calloc(len + 1, 1);
-	if (!pr)
+	i = 0;
+	if (!s || !f)
 		return (0);
-	while (len > 0)
-	{	
-		if (n < 0)
-			pr[len - 1] = -(n % 10) + 48;
-		else
-			pr[len - 1] = (n % 10) + 48;
-		n /= 10;
-		len--;
+	ns = ft_strdup(s);
+	if (!ns)
+		return (0);
+	while (s[i])
+	{
+		ns[i] = f(i, s[i]);
+		i++;
 	}
-	if (no < 0)
-		*pr = '-';
-	return (pr);
+	return (ns);
 }

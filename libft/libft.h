@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 21:57:43 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/17 16:40:42 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,13 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 char	*ft_itoa(int n);
+void	ft_putnbr_fd(int n, int fd);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	**ft_split(char const *s, char c);
 
+/*
+**  Especial
+*/
+
+int		ft_intlen(int n);
 #endif
