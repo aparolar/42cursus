@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:51:50 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/11 13:03:12 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:31:23 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*p_src;
 	char	*p_dst;
 
-	if (!src && !dst && n)
+	if (!dst && !src && n)
 		return (NULL);
 	p_src = (char *)src;
 	p_dst = (char *)dst;
