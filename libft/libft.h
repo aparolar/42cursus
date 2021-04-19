@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/18 16:47:16 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/19 23:46:10 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uchar;
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 /*
 **  Part 1

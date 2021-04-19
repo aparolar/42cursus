@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 16:39:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/19 21:47:36 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/19 23:46:56 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ static char	**ft_get_split(char **split, char *s, char c)
 		s1 = s2;
 		i++;
 	}
-//	if (i == 0)
-//		return (NULL);
 	split[i] = NULL;
 	return (split);
 }
