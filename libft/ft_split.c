@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 16:39:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/19 19:06:04 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/19 21:47:36 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,6 @@ static t_uint	ft_find_chars(char *str, char c)
 	}
 	return (len);
 }
-/*
-static char	*ft_get_substr_begins(char *str, char c)
-{
-	while (*str && *str == c)
-		str++;
-	return (str);
-}
-*/
-/*
-static char	*ft_get_substr_ends(char *str, char c)
-{
-	while (*str && *str != c)
-		str++;
-	return (str);
-}
-*/
 
 static char	**ft_get_split(char **split, char *s, char c)
 {
@@ -66,8 +50,8 @@ static char	**ft_get_split(char **split, char *s, char c)
 		s1 = s2;
 		i++;
 	}
-	if (i == 0)
-		return (NULL);
+//	if (i == 0)
+//		return (NULL);
 	split[i] = NULL;
 	return (split);
 }
@@ -76,49 +60,16 @@ char	**ft_split(char const *s, char c)
 {
 	t_uint	maxi;
 	char	**split;
-	char	*s2;
 	char	*s1;
 
 	if (!s)
 		return (0);
 	s1 = (char *)s;
-	s2 = s1;
 	maxi = ft_find_chars(s1, c);
 	if (!maxi)
 		return (0);
-	split = ft_calloc(maxi, sizeof(char *));	
+	split = ft_calloc(maxi, sizeof(char *));
 	if (!split)
 		return (0);
 	return (ft_get_split(split, (char *)s, c));
 }
-/*
-char	**ft_split(char const *s, char c)
-{
-	t_uint	maxi;
-	t_uint	i;
-	char	**split;
-	char	*s2;
-	char	*s1;
-
-	if (!s)
-		return (0);
-	s1 = (char *)s;
-	s2 = s1;
-	maxi = ft_find_chars(s1, c);
-	if (!maxi)
-		return (0);
-	split = ft_calloc(maxi, sizeof(char **));
-	if (!split)
-		return (0);
-	i = 0;
-	while (*s1)
-	{
-		s1 = ft_get_substr_begins(s2, c);
-		s2 = ft_get_substr_ends(s1, c);
-		split[i] = ft_substr(s1, 0, (t_uint)(s2 - s1));
-		s2++;
-		i++;
-	}
-	return (split);
-}
-*/
