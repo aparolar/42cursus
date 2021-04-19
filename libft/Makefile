@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/19 09:46:48 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/19 18:22:16 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,11 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc $(FLAGS) -I. 
 
-FLAGS		=	-Wall -Wextra -Werror -g
+FLAGS		=	-Wall -Wextra -Werror -g3
+
+DEBUGFLAGS	=	$(FLAGS) -g3
+
+DEBUGFLAGSX	=	$(FLAGS) -g3 -fsanitize=address
 
 NAME		=	libft.a
 
@@ -29,7 +33,7 @@ clean:
 			rm -f $(OBJS)
 
 test:		re
-			$(CC) -g libft.a -o a.out
+			gcc $(DEBUGFLAGS) -I. libft.a -o a.out
 			./a.out
 			rm -f *.o
 
