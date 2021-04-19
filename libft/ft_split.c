@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 16:39:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/19 00:43:35 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:06:12 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,18 @@ static t_uint	ft_find_chars(char *str, char c)
 	return (len);
 }
 
-static const char	*ft_get_substr_begins(const char *str, char c)
+static char	*ft_get_substr_begins(char *str, char c)
 {
 	while (*str && *str == c)
 		str++;
 	return (str);
 }
 
-static const char	*ft_get_substr_ends(const char *str, char c)
+static char	*ft_get_substr_ends(char *str, char c)
 {
 	while (*str && *str != c)
 		str++;
 	return (str);
-}
-
-static char	*ft_split_free(const char **split)
-{
-	while (*split)
-	{
-		free((void *)split);
-		split++;
-	}
-	free((void *)split);
-	free(split);
-	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -59,26 +47,27 @@ char	**ft_split(char const *s, char c)
 	t_uint	i;
 	char	**split;
 	char	*s2;
+	char	*s1;
 
 	if (!s)
 		return (0);
-	s2 = (char *)s;
-	maxi = ft_find_chars((char *)s, c);
+	s1 = (char *)s;
+	s2 = s1;
+	maxi = ft_find_chars(s1, c);
 	if (!maxi)
 		return (0);
-	split = ft_calloc(maxi + 1, sizeof(split));
+	split = ft_calloc(maxi, sizeof(char *));
 	if (!split)
 		return (0);
 	i = 0;
-	while (*s)
+	while (*s1)
 	{
-		s = (char *)ft_get_substr_begins(s2, c);
-		s2 = (char *)ft_get_substr_ends(s, c);
+		s1 = ft_get_substr_begins(s2, c);
+		s2 = ft_get_substr_ends(s1, c);
 		if (i <= maxi)
-			split[i] = ft_substr(s, 0, (t_uint)(s2 - s));
+			split[i] = ft_substr(s1, 0, (t_uint)(s2 - s1));
 		s2++;
 		i++;
 	}
-	split[i] = 0;
 	return (split);
 }

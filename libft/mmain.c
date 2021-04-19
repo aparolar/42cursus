@@ -12,14 +12,15 @@ int	main(void)
 		printf("%s\n", str[i]);
 		i++;
 	}
-	str = ft_split("      split       this for   me  !       ", ' ');
+	str = 0;
+	str = ft_split("split  ||this|for|me|||||!|", '|');
 	i = 0;
 	while (ft_strncmp(str[i], "", ft_strlen(str[i])))
 	{
 		printf("%s\n", str[i]);
 		i++;
 	}
-	str = ft_split("", ' ');
+	str = ft_split("                  olol", ' ');
 	i = 0;
 	while (str && ft_strncmp(str[i], "", ft_strlen(str[i])))
 	{

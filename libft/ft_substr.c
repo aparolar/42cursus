@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 10:55:08 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/18 17:03:54 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/19 12:23:38 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	slen = ft_strlen(s);
 	if (start > slen)
-		return (ft_calloc(1, 1));
+		return (ft_calloc(1, sizeof(char)));
 	if (slen < start + len)
 		len = slen - start;
-	s2 = ft_calloc(len + 1, 1);
+	s2 = ft_calloc(len + 1, sizeof(char));
 	if (s2)
 		return (ft_memcpy(s2, s + start, len));
 	return (0);
