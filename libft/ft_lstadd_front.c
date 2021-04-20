@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/20 11:16:53 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/20 11:30:53 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	int		len;
-	long	no;
-	char	str[12];
-
-	if (fd)
+	if (new)
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
+		if (alst)
+		{
+			new->next = alst[0];
+			alst[0] = new;
 		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
-	}
+	}	
 }

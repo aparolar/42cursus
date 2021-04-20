@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/16 13:50:29 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 23:04:24 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		len;
-	long	no;
-	char	str[12];
+	char	*pt;
+	char	*fs1;
+	size_t	s1len;
 
-	if (fd)
+	if (!s1 || !set)
+		return (0);
+	s1len = ft_strlen(s1);
+	fs1 = (char *)s1 + s1len;
+	while (s1 < fs1 && ft_strchr(set, *s1))
+		s1++;
+	while (fs1 >= s1 && ft_strchr(set, *fs1))
+		fs1--;
+	pt = (char *)ft_calloc(fs1 - s1 + 2, 1);
+	if (pt && ft_memcpy(pt, s1, fs1 - s1 + 1))
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
-		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
+		return (pt);
 	}
+	else
+		return (0);
 }

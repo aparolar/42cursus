@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/20 13:31:34 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/20 13:52:33 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		len;
-	long	no;
-	char	str[12];
+	t_list	*ndel;
 
-	if (fd)
+	if (lst && del)
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
+		ndel = *lst;
+		while (*lst)
+		{
+			ndel = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = ndel;
 		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
 	}
 }

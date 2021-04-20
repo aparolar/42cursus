@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/20 12:47:17 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/20 16:05:37 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	int		len;
-	long	no;
-	char	str[12];
+	t_list	*delone;
 
-	if (fd)
+	if (lst && del)
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
-		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
+		delone = lst;
+		lst = lst->next;
+		del(delone->content);
+		free(delone);
+		delone = NULL;
 	}
 }

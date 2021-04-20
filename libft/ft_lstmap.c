@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/20 16:18:18 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/20 18:56:12 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		len;
-	long	no;
-	char	str[12];
+	t_list	*ret;
+	t_list	*tmp;
 
-	if (fd)
+	ret = NULL;
+	if (lst && f)
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
+		while (lst != NULL)
+		{
+			tmp = ft_lstnew(f(lst->content));
+			if (tmp == NULL)
+			{
+				ft_lstclear(&ret, del);
+				return (NULL);
+			}
+			ft_lstadd_back(&ret, tmp);
+			lst = lst->next;
 		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
 	}
+	return (ret);
 }

@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/14 20:20:05 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 09:51:33 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int		len;
-	long	no;
-	char	str[12];
+	void	*ptr;
 
-	if (fd)
-	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
-		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
-	}
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (0);
+	ft_memset(ptr, 0, count * size);
+	return (ptr);
 }

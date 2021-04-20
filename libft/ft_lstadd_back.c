@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/20 11:47:39 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/20 12:44:16 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		len;
-	long	no;
-	char	str[12];
+	t_list	*node;
 
-	if (fd)
+	if (lst && new)
 	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
+		if (!*lst)
+			*lst = new;
+		else
+		{
+			node = ft_lstlast(*lst);
+			if (node)
+				node->next = new;
 		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
 	}
 }

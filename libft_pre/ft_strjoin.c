@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 16:05:51 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 09:59:08 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/16 11:23:09 by aparolar          #+#    #+#             */
+/*   Updated: 2021/04/16 13:47:13 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len;
-	long	no;
-	char	str[12];
+	char	*sj;
+	size_t	s1len;
+	size_t	s2len;
 
-	if (fd)
-	{
-		no = n;
-		len = ft_intlen(n);
-		str[len + 1] = 0;
-		if (n < 0)
-			len++;
-		while (len > 0)
-		{	
-			if (n < 0)
-				str[len - 1] = -(n % 10) + 48;
-			else
-				str[len - 1] = (n % 10) + 48;
-			n /= 10;
-			len--;
-		}
-		if (no < 0)
-			str[0] = '-';
-		ft_putstr_fd(str, fd);
-	}
+	if (!s1 || !s2)
+		return (0);
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	sj = (char *)ft_calloc(s1len + s2len + 1, sizeof(char));
+	if (!sj)
+		return (0);
+	ft_memcpy(sj, s1, s1len);
+	ft_memcpy(sj + s1len, s2, s2len);
+	return (sj);
 }
