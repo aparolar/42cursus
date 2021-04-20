@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:52:07 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/11 16:46:59 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:50:52 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-** compares n chars prom s1 pointer to s2 pointer
-** if finded a difference returns diference of the two chars
-** else returns 0
-*/
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

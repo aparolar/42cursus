@@ -6,15 +6,15 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 16:39:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/19 23:46:56 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:54:41 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_uint	ft_find_chars(char *str, char c)
+static unsigned int	ft_find_chars(char *str, char c)
 {
-	t_uint	len;
+	unsigned int	len;
 
 	len = 1;
 	while (*str)
@@ -56,9 +56,9 @@ static char	**ft_get_split(char **split, char *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	t_uint	maxi;
-	char	**split;
-	char	*s1;
+	unsigned int	maxi;
+	char			**split;
+	char			*s1;
 
 	if (!s)
 		return (0);

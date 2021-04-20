@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:40:12 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 11:06:47 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:52:52 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** search a first coincidence of c value along the s string begining
-** from the end an returns his position or NULL if not encountered
-*/
 
 char	*ft_strrchr(const char *s, int c)
 {

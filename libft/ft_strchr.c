@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 16:34:09 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 09:57:05 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:52:02 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** search  c char into a str from the begining and 
-** returns NULL if not encountered or pointer to the position
-** of first ocurrence
-*/
 
 char	*ft_strchr(const char *s, int c)
 {

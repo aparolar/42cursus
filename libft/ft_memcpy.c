@@ -6,16 +6,11 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:51:50 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/18 16:31:23 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:50:27 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** copies n char's from src pointer to dst pointer
-** if src or dst are NULL returns NULL
-*/
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:53:37 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/12 20:04:56 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:51:12 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** puts char c value into b pointer along de len chars
-** returns b pointer
-*/
 
 void	*ft_memset(void *b, int c, size_t len)
 {

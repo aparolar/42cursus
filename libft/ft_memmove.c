@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:52:22 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/11 13:54:16 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 21:51:04 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-** copies all chars from src pointer to dst pointer
-** the strings may be overlaped
-** returns pointer to dst
-*/
 
 void	*ft_memmove(void *dst, void *src, size_t len)
 {
