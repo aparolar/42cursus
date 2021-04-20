@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 17:07:06 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:28:15 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef unsigned int	t_uint;
-typedef unsigned char	t_uchar;
 typedef struct s_list
 {
 	void			*content;
@@ -90,4 +88,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 */
 
 int		ft_intlen(int n);
+
 #endif
