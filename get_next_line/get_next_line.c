@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/21 17:21:21 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/21 22:51:40 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	get_line(char *buff, char **line)
 
 	len = 0;
 	b = buff;
-	while (*b != '\n' && b < buff + BUFFER_SIZE)
+	while (*b != '\n' && b < buff + BUFFER_SIZE - 1)
 		len++;
 	b = buff;
 	*line = malloc((len + 1) * sizeof(char));
 	if (*line)
 	{
-		while (*b != '\n' && b < buff + BUFFER_SIZE)
+		while (*b != '\n' && b < buff + BUFFER_SIZE - 1)
 		{
 			**line = *b;
 			b++;
