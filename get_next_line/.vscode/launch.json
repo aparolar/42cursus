@@ -6,19 +6,6 @@
 	"configurations": [
 		{
 			"preLaunchTask": "build",
-			"name": "(gdb) Iniciar",
-			"type": "cppdbg",
-			"request": "launch",
-			"program": "${workspaceFolder}/a.out",
-			"args": [],
-			"stopAtEntry": false,
-			"cwd": "${workspaceFolder}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "gdb"
-		},
-		{
-			"preLaunchTask": "build",
 			"name": "(lldb) Iniciar",
 			"type": "cppdbg",
 			"request": "launch",

@@ -6,33 +6,58 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/21 22:51:40 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/22 16:19:49 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+int	get_buffer(char *buff, int *start, int *len)
+{
+	int		*bytes;
+	char	*b2;
+
+	bytes = (int *)buff + BUFFER_SIZE;
+	if (*bytes)
+	{
+
+	}
+	else
+	{
+		*start = 0;
+		while (*(buff + *len) != '\n' && buff + *len < buff + BUFFER_SIZE - 1)
+			len++;
+	}
+	return (*bytes);
+}
+
 int	get_line(char *buff, char **line)
 {
 	int		len;
+	int		bytes;
+	int		start;
 	char	*b;
 
 	len = 0;
 	b = buff;
-	while (*b != '\n' && b < buff + BUFFER_SIZE - 1)
-		len++;
-	b = buff;
-	*line = malloc((len + 1) * sizeof(char));
-	if (*line)
+	bytes = get_buffer(buff, &start, &len);
+	if (bytes)
 	{
-		while (*b != '\n' && b < buff + BUFFER_SIZE - 1)
+		len = BUFFER_SIZE - bytes;
+	}
+	b = buff;
+	*line = malloc((len + 1) * sizeof(char **));
+	line[len + 1 * sizeof(char)] = 0;
+	if (*b)
+	{
+		while (b <= (buff + len))
 		{
-			**line = *b;
+			*((*line) + (b - buff)) = *b;
 			b++;
 		}
 	}
-	*((int *)(buff + BUFFER_SIZE)) = (buff + BUFFER_SIZE) - b;
-	return ();
+	bytes = (buff + BUFFER_SIZE) - b;
+	return (bytes);
 }
 
 int	get_next_line(int fd, char **line)
@@ -43,18 +68,18 @@ int	get_next_line(int fd, char **line)
 
 	if (fd)
 	{
-		bytes = &buff[BUFFER_SIZE];
+		bytes = (int *)buff + BUFFER_SIZE;
 		ret = 1;
 		while (ret)
 		{
 			if (*bytes > 0)
 			{
-				ret = get_line(&buff, &line);
+				ret = get_line(buff, line);
 			}
 			else
 			{
-				ret = read(fd, &buff, BUFFER_SIZE);
-				ret = get_line(&buff, &line);
+				ret = read(fd, buff, BUFFER_SIZE);
+				ret = get_line(buff, line);
 			}
 		}
 	}
