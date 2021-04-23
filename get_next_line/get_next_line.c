@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/22 16:19:49 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/22 19:37:53 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ int	get_buffer(char *buff, int *start, int *len)
 	char	*b2;
 
 	bytes = (int *)buff + BUFFER_SIZE;
+	*len = 0;
 	if (*bytes)
-	{
-
-	}
+		start = BUFFER_SIZE - *bytes;
+	else if (!start && !len)
+		return (bytes);
 	else
-	{
 		*start = 0;
-		while (*(buff + *len) != '\n' && buff + *len < buff + BUFFER_SIZE - 1)
-			len++;
-	}
+	while (*(buff + *start + *len) != '\n' && buff + *len < buff + BUFFER_SIZE)
+		len++;
 	return (*bytes);
 }
 
@@ -41,14 +40,9 @@ int	get_line(char *buff, char **line)
 	len = 0;
 	b = buff;
 	bytes = get_buffer(buff, &start, &len);
-	if (bytes)
-	{
-		len = BUFFER_SIZE - bytes;
-	}
-	b = buff;
 	*line = malloc((len + 1) * sizeof(char **));
 	line[len + 1 * sizeof(char)] = 0;
-	if (*b)
+	if (*b && b < buff + BUFFER_SIZE)
 	{
 		while (b <= (buff + len))
 		{
@@ -68,14 +62,12 @@ int	get_next_line(int fd, char **line)
 
 	if (fd)
 	{
-		bytes = (int *)buff + BUFFER_SIZE;
+		bytes = get_buffer(&buff, 0, 0);
 		ret = 1;
 		while (ret)
 		{
 			if (*bytes > 0)
-			{
 				ret = get_line(buff, line);
-			}
 			else
 			{
 				ret = read(fd, buff, BUFFER_SIZE);
