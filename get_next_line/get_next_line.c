@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/22 19:37:53 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/26 15:21:45 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_buffer(char *buff, int *start, int *len)
 	else
 		*start = 0;
 	while (*(buff + *start + *len) != '\n' && buff + *len < buff + BUFFER_SIZE)
-		len++;
+		*len++;
 	return (*bytes);
 }
 

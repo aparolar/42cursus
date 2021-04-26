@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/04/20 21:53:13 by aparolar         ###   ########.fr        #
+#    Updated: 2021/04/25 17:17:46 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,13 @@ NAME		=	libft.a
 
 $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
+			make clean
 
 all:		$(NAME)
 
 bonus:		$(OBJS) $(OBJS_BONUS)
 			ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+			#make clean
 
 clean:
 			rm -f $(OBJS)
