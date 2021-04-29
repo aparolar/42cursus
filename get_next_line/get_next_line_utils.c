@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/29 17:24:53 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/30 01:23:05 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ char	*ft_memcpy(char *s1, char *s2, size_t n)
 		n--;
 	}
 	return (ps1);
+}
+
+void	*slloc(size_t bytes)
+{
+	void	*ret;
+
+	if (bytes == 0)
+		bytes = 1;
+	ret = malloc(bytes);
+	if (!ret)
+		return (0);
+	*((size_t *)(ret + (bytes - 1))) = 0;
+	return (ret);
 }
