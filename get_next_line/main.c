@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:25:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/29 18:07:48 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/29 21:32:54 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 		ret = get_next_line(fd, &line);
 		if (ret >= 0)
 		{
-			printf("<<<%s>>>\n\n\n\n\n", line);
+			printf("<<<%s>>>\n", line);
 		}
 	}	
 	return (0);
