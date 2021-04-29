@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/29 16:37:14 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/29 17:38:01 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	get_next_line(int fd, char **line)
 	*ret = 0;
 	if (fd)
 	{
+		//if (*line)
+		//	free(*line);
 		*line = malloc(sizeof(char));
 		while (*ret != EOF)
 		{
