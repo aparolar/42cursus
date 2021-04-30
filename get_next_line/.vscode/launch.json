@@ -17,19 +17,6 @@
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "lldb"
-		},
-		{
-			"preLaunchTask": "build",
-			"name": "(gdb) Iniciar",
-			"type": "cppdbg",
-			"request": "launch",
-			"program": "${workspaceFolder}/myld",
-			"args": [],
-			"stopAtEntry": false,
-			"cwd": "${workspaceFolder}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "gdb"
 		}
 	]
 }

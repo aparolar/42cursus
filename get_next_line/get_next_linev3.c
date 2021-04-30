@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/30 16:11:35 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/04/30 13:32:46 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ size_t	get_line(char *buff, size_t bytes, char **line)
 				*((int *)(buff + BUFFER_SIZE + sizeof(int))) = 1;
 			pebuff++;
 		}
-		if (!*line)
-			*line = ft_calloc(1, sizeof(char));
-		new = ft_strcat(*line, pbuff);
+		new = slloc((ft_strlen(*line) + (pebuff - pbuff)) * sizeof(char));
+		ft_memcpy(new, *line, ft_strlen(*line));
+		ft_memcpy(new + ft_strlen(new), pbuff, pebuff - pbuff);
 		free(*line);
 		*line = new;
 	}
@@ -42,24 +42,23 @@ size_t	get_line(char *buff, size_t bytes, char **line)
 
 int	get_next_line(int fd, char **line)
 {
-	static char	buff[BUFFER_SIZE + sizeof(int) + sizeof(int)];
+	static char	buff[BUFFER_SIZE + sizeof(int) + (sizeof(int))];
 	int			*ret;
 	int			*endline;
 
+	ret = ((int *)(buff + BUFFER_SIZE));
+	endline = (int *)((buff + BUFFER_SIZE + sizeof(int)));
+	*endline = 0;
+	*ret = 0;
 	if (fd)
 	{
-		if (*line)
-			free(*line);
-		ret = ((int *)(buff + BUFFER_SIZE));
-		endline = (int *)((buff + BUFFER_SIZE + sizeof(int)));
-		*endline = 0;
-		*ret = 0;
+		*line = malloc(sizeof(char));
 		while (*ret != EOF)
 		{
 			if (*ret > 0)
-				*ret = get_line((char *)buff, *ret, line);
+				*ret = get_line(buff, *ret, line);
 			else
-				*ret = read(fd, (char *)buff, BUFFER_SIZE);
+				*ret = read(fd, buff, BUFFER_SIZE);
 			if (*endline && *ret != EOF)
 				return (1);
 		}
