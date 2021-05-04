@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/30 15:38:11 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/02 13:36:32 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ size_t	ft_strlen(char *str)
 	while (*pbuff)
 		pbuff++;
 	return (pbuff - str);
+}
+
+char	*ft_bzero(const char *s, size_t n)
+{
+	char	*ps;
+
+	ps = (char *)s;
+	while (n > 0)
+	{
+		*(ps + n) = 0;
+		n--;
+	}
+	return (ps);
 }
 
 char	*ft_memcpy(char *s1, const char *s2, size_t n)

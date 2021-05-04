@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_longlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 12:25:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/01 16:58:29 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/17 12:24:39 by aparolar          #+#    #+#             */
+/*   Updated: 2021/05/03 00:41:07 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_longlen(long n)
 {
-	int		fd;
-	int		ret;
-	char	*line;
+	int	len;
 
-	ret = 1;
-	line = 0;
-	fd = open("get_next_line.h", O_RDONLY);
-	while (ret)
+	len = 0;
+	if (n == 0)
+		len = 1;
+	while (n > 0 || n < 0)
 	{
-		ret = get_next_line(fd, &line);
-		if (ret >= 0)
-			printf("%s\n", line);
+		n /= 10;
+		len++;
 	}
-	system("leaks");
-	return (0);
+	return (len);
 }
