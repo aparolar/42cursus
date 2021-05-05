@@ -6,19 +6,19 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/02 13:36:32 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:07:35 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	char	*pbuff;
 
 	if (!str)
 		return (0);
-	pbuff = str;
+	pbuff = (char *)str;
 	while (*pbuff)
 		pbuff++;
 	return (pbuff - str);
@@ -30,10 +30,7 @@ char	*ft_bzero(const char *s, size_t n)
 
 	ps = (char *)s;
 	while (n > 0)
-	{
-		*(ps + n) = 0;
-		n--;
-	}
+		*(ps + --n) = 0;
 	return (ps);
 }
 
@@ -77,14 +74,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ret;
 
-	count *= size;
+	size *= count;
 	ret = malloc(size);
 	if (!ret)
 		return (0);
-	while (size > 0)
-	{
-		*((char *)(ret + size - 1)) = 0;
-		size--;
-	}
+	ft_bzero(ret, size);
 	return (ret);
 }

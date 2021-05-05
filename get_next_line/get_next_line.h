@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:02:54 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/01 16:58:46 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:09:40 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		get_next_line(int fd, char **line);
 char	*ft_bzero(const char *s, size_t n);
 char	*ft_memcpy(char *s1, const char *s2, size_t n);
 char	*ft_strcat(const char *s1, const char *s2);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 
 #endif

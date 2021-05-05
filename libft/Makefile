@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/03 00:48:41 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/05 12:42:00 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,14 @@ all:		$(NAME)
 
 bonus:		$(OBJS) $(OBJS_BONUS)
 			ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-			#make clean
+			make clean
 
 clean:
 			rm -f $(OBJS)
 			rm -f $(OBJS_BONUS)
+
+debug:		fclean
+			make re FLAGS="$(DBGFLAGS)"
 
 # for test with
 test:		re
