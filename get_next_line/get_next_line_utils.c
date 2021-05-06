@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/05 21:23:24 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/06 15:02:47 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_strcat(const char *s1, const char *s2)
 	{
 		ps1 = (char *)s1;
 		ps2 = (char *)s2;
-		ret = (char *)ft_calloc(ft_strlen(ps1) + ft_strlen(ps2), sizeof(char));
+		ret = ft_calloc(ft_strlen(ps1) + ft_strlen(ps2) + 1, sizeof(char));
 		if (ret)
 		{
 			ft_memcpy(ret, ps1, ft_strlen(ps1));

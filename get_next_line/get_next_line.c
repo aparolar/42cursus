@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/06 00:28:20 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:10:55 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,29 @@ static char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (0);
 }
 
-static int	get_line(char *fd, char *buff, char **line, int len)
+static char	*get_line(char **fd, char *buff, char **line, int len)
 {
 	char	*new;
 	char	*peb;
 
-	new = ft_strcat(fd, buff);
+	new = ft_strcat(*fd, buff);
 	if (fd)
 		free(*fd);
-	fd = new;
+	*fd = new;
 	peb = new;
-	len = -1;
-	while (*peb != '\n' && *peb)
+	while (*peb != '\n' && *peb != 0)
 		peb++;
-	if (peb > fd && (*peb == '\n' || *peb == EOF))
+	if (peb > *fd && (*peb == '\n' || *peb == EOF))
 	{
 		*line = ft_substr(new, 0, peb - new);
-		fd = ft_substr(new, peb - new + 1, len - (peb - new + 1));
-		free(new);
+		return (ft_substr(new, peb - new + 1, (peb - new + 1)));
 	}
-	return (len);
+	else if (peb == *fd && (*peb == '\n' || *peb == EOF))
+	{
+		*line = ft_calloc(1, sizeof(char));
+		return (ft_substr(new, peb - new + 1, (peb - new + 1)));
+	}
+	return (new);
 }
 
 /*
@@ -59,7 +62,7 @@ static int	get_line(char *fd, char *buff, char **line, int len)
 
 int	get_next_line(int fd, char **line)
 {
-	static char	*fds[256];
+	static char	*fds[4096];
 	char		buff[BUFFER_SIZE + 1];
 	int			ret;
 
@@ -72,14 +75,16 @@ int	get_next_line(int fd, char **line)
 	{
 		ft_bzero(buff, BUFFER_SIZE + 1);
 		ret = read(fd, buff, BUFFER_SIZE);
-		ret = get_line(&(fds + fd), buff, line, ret);
-		if (*line && *line[ft_strlen(*line) - 1] == '\n')
-			*line[ft_strlen(*line) - 1] = 0;
-		if (ft_strlen(*line) > 0 && ft_strlen((char *)fds[fd]) > 0)
+		fds[fd] = get_line(&fds[fd], buff, line, ret);
+		if (*line && ft_strlen(fds[fd]) > 0 && ret > 0)
+		{
 			return (1);
-		if (ft_strlen(*line) > 0 && ft_strlen((char *)fds[fd]) == 0)
+		}
+		else if (*line && !ret)
+		{
+			*line = fds[fd];
 			return (0);
+		}
 	}
 	return (-1);
 }
-----
