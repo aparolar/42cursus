@@ -6,13 +6,13 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/05 17:25:38 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/06 00:28:20 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	slen;
 	char	*s2;
@@ -30,12 +30,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (0);
 }
 
-int	get_line(char *fd, char *buff, char **line, int len)
+static int	get_line(char *fd, char *buff, char **line, int len)
 {
 	char	*new;
 	char	*peb;
 
 	new = ft_strcat(fd, buff);
+	if (fd)
+		free(*fd);
 	fd = new;
 	peb = new;
 	len = -1;
@@ -47,8 +49,6 @@ int	get_line(char *fd, char *buff, char **line, int len)
 		fd = ft_substr(new, peb - new + 1, len - (peb - new + 1));
 		free(new);
 	}
-	else if (peb > fd)
-		fd = new;
 	return (len);
 }
 
@@ -59,7 +59,7 @@ int	get_line(char *fd, char *buff, char **line, int len)
 
 int	get_next_line(int fd, char **line)
 {
-	static char	**fds[256];
+	static char	*fds[256];
 	char		buff[BUFFER_SIZE + 1];
 	int			ret;
 
@@ -72,7 +72,7 @@ int	get_next_line(int fd, char **line)
 	{
 		ft_bzero(buff, BUFFER_SIZE + 1);
 		ret = read(fd, buff, BUFFER_SIZE);
-		ret = get_line((char *)fds[fd], buff, line, ret);
+		ret = get_line(&(fds + fd), buff, line, ret);
 		if (*line && *line[ft_strlen(*line) - 1] == '\n')
 			*line[ft_strlen(*line) - 1] = 0;
 		if (ft_strlen(*line) > 0 && ft_strlen((char *)fds[fd]) > 0)
@@ -82,3 +82,4 @@ int	get_next_line(int fd, char **line)
 	}
 	return (-1);
 }
+----
