@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/09 22:57:30 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/08 15:00:02 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,31 @@ static char	*ft_strrem(const char *s, size_t start, size_t len)
 	return (st);
 }
 
-static char	*get_line(char **fd, char **line, int *ret)
+static char	*get_line(char **fd, char *buff, char **line, int *ret)
 {
-	char	*s;
-	char	*si;
-	char	*st;
+	char	*new;
+	char	*n1;
+	char	*peb;
 
-	s = *fd;
-	if (!ft_strchr(s, '\n'))
+	new = ft_strcat(*fd, buff);
+	n1 = new;
+	peb = new;
+	*ret = 0;
+	while (*peb && *peb != '\n')
+		peb++;
+	if (*peb != '\n' && ft_strlen(buff) == BUFFER_SIZE)
+		peb = new;
+	if (peb > new || (*peb == '\n'))
 	{
-		*line = ft_substr(s, 0, ft_strlen(s));
-		free(*fd);
+		*line = 0;
+		*ret = peb - new;
+		*line = ft_substr(new, 0, *ret);
+		peb = ft_strrem(new, 0, *ret + 1);
+		free(new);
+		new = peb;
 	}
-	else
-	{
-		*line = ft_substr(s, 0, )
-	}
+	free(*fd);
+	return (new);
 }
 
 /*
@@ -68,24 +77,25 @@ int	get_next_line(int fd, char **line)
 {
 	static char	*fds[4096];
 	char		buff[BUFFER_SIZE + 1];
-	char		*tmp;
-	int			ret;
+	int			ret[2];
 
+	ret[0] = -1;
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
-		return (-1);
-	*line = 0;
-	ret = read(fd, buff, BUFFER_SIZE);
-	while (ret > 0)
+		return (ret[0]);
+	if (!(fds[fd]))
+		fds[fd] = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	while (read(fd, buff, 0) == 0)
 	{
-		buff[ret] = 0;
-		if (!fds[fd])
-			fds[fd] = ft_calloc(1, sizeof(char));
-		tmp = fds[fd];
-		fds[fd] = ft_strcat(fds[fd], buff);
-		free(tmp);
-		if (ft_strchr(fds[fd], '\n'))
+		ret[0] = read(fd, buff, BUFFER_SIZE);
+		buff[ret[0]] = 0;
+		if (ft_strlen(fds[fd]) > 0 || ft_strlen(buff) > 0)
+			fds[fd] = get_line(&fds[fd], buff, line, &ret[1]);
+		if (ret[0] == 0 && fds[fd][0] == 0)
 			break ;
-		ret = read(fd, buff, BUFFER_SIZE);
+		else if (*line && fds[fd][0] != 0)
+			return (1);
 	}
-	return (get_line(&fds[fd], line, &ret));
+	if (fds[fd])
+		free(fds[fd]);
+	return (ret[0]);
 }

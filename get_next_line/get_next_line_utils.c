@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/06 15:02:47 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/09 12:02:49 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ size_t	ft_strlen(const char *str)
 	return (pbuff - str);
 }
 
+char	*ft_strchr(const char *s, int c)
+{
+	char	*sd;
+
+	sd = (char *)s;
+	while (*sd)
+	{
+		if (*sd == (char)c)
+			return (sd);
+		sd++;
+	}
+	return (0);
+}
+/*
 char	*ft_bzero(const char *s, size_t n)
 {
 	char	*ps;
@@ -33,20 +47,31 @@ char	*ft_bzero(const char *s, size_t n)
 		*(ps + --n) = 0;
 	return (ps);
 }
+*/
 
-char	*ft_memcpy(char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, size_t start, size_t len)
 {
-	char	*ps1;
-	char	*ps2;
+	char	*st;
+	char	*s1;
 
-	ps1 = (char *)s1;
-	ps2 = (char *)s2;
-	while (n > 0)
+	s1 = (char *)s;
+	if (!s)
+		return (0);
+	if (start > ft_strlen(s))
+		return (ft_calloc(1, sizeof(char)));
+	if (ft_strlen(s) < start + len)
+		len = ft_strlen(s) - start;
+	st = ft_calloc(len + 1, sizeof(char));
+	if (st)
 	{
-		ps1[n - 1] = ps2[n - 1];
-		n--;
+		while (len > 0)
+		{
+			st[len - 1] = s1[start + len - 1];
+			len--;
+		}
+		return (st);
 	}
-	return (ps1);
+	return (0);
 }
 
 char	*ft_strcat(const char *s1, const char *s2)
@@ -62,8 +87,16 @@ char	*ft_strcat(const char *s1, const char *s2)
 		ret = ft_calloc(ft_strlen(ps1) + ft_strlen(ps2) + 1, sizeof(char));
 		if (ret)
 		{
-			ft_memcpy(ret, ps1, ft_strlen(ps1));
-			ft_memcpy(ret + ft_strlen(ps1), ps2, ft_strlen(ps2));
+			while (*ps1)
+			{
+				ret[ps1 - s1] = *ps1;
+				ps1++;
+			}
+			while (*ps2)
+			{
+				ret[(ps1 - s1) + (ps2 - s2)] = *ps2;
+				ps2++;
+			}
 			return (ret);
 		}
 	}
@@ -72,12 +105,30 @@ char	*ft_strcat(const char *s1, const char *s2)
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ret;
+	char	*ret;
 
 	size *= count;
 	ret = malloc(size);
 	if (!ret)
 		return (0);
-	ft_bzero(ret, size);
+	while (size > 0)
+		ret[--size] = 0;
 	return (ret);
 }
+
+/*
+char	*ft_memcpy(char *s1, const char *s2, size_t n)
+{
+	char	*ps1;
+	char	*ps2;
+
+	ps1 = (char *)s1;
+	ps2 = (char *)s2;
+	while (n > 0)
+	{
+		ps1[n - 1] = ps2[n - 1];
+		n--;
+	}
+	return (ps1);
+}
+*/
