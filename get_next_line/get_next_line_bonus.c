@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/08 15:00:02 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 22:39:57 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,61 +41,53 @@ static char	*ft_strrem(const char *s, size_t start, size_t len)
 	return (st);
 }
 
-static char	*get_line(char **fd, char *buff, char **line, int *ret)
+static int	get_line(char **buffer, char **line, int bytes)
 {
-	char	*new;
-	char	*n1;
-	char	*peb;
+	char	*s;
 
-	new = ft_strcat(*fd, buff);
-	n1 = new;
-	peb = new;
-	*ret = 0;
-	while (*peb && *peb != '\n')
-		peb++;
-	if (*peb != '\n' && ft_strlen(buff) == BUFFER_SIZE)
-		peb = new;
-	if (peb > new || (*peb == '\n'))
+	s = *buffer;
+	if (!s)
+		*line = ft_calloc(1, sizeof(char));
+	else if (!ft_strchr(s, '\n'))
 	{
-		*line = 0;
-		*ret = peb - new;
-		*line = ft_substr(new, 0, *ret);
-		peb = ft_strrem(new, 0, *ret + 1);
-		free(new);
-		new = peb;
+		*line = ft_substr(s, 0, ft_strlen(s));
+		free(s);
+		*buffer = 0;
 	}
-	free(*fd);
-	return (new);
+	else
+	{
+		*line = ft_substr(s, 0, ft_strchr(s, '\n') - s);
+		*buffer = ft_strrem(s, 0, ft_strchr(s, '\n') - s + 1);
+		free(s);
+		s = 0;
+		bytes = 1;
+	}
+	return (bytes);
 }
-
-/*
-**  el maximo de descriptores abiertos en el sistema viene determinado por
-**  FD_SETSIZE por motivos de eficiencia de memoria lo reduzco a 256
-*/
 
 int	get_next_line(int fd, char **line)
 {
-	static char	*fds[4096];
+	static char	*list[4096];
 	char		buff[BUFFER_SIZE + 1];
-	int			ret[2];
+	char		*tmp;
+	int			ret;
 
-	ret[0] = -1;
-	if (fd < 0 || !line || BUFFER_SIZE < 1)
-		return (ret[0]);
-	if (!(fds[fd]))
-		fds[fd] = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	while (read(fd, buff, 0) == 0)
+	if (fd < 0 || read(fd, buff, 0) < 0 || !line || BUFFER_SIZE < 1 )
+		return (-1);
+	ret = read(fd, buff, BUFFER_SIZE);
+	while (ret > 0)
 	{
-		ret[0] = read(fd, buff, BUFFER_SIZE);
-		buff[ret[0]] = 0;
-		if (ft_strlen(fds[fd]) > 0 || ft_strlen(buff) > 0)
-			fds[fd] = get_line(&fds[fd], buff, line, &ret[1]);
-		if (ret[0] == 0 && fds[fd][0] == 0)
+		buff[ret] = 0;
+		if (!list[fd])
+			list[fd] = ft_calloc(1, sizeof(char));
+		tmp = list[fd];
+		list[fd] = ft_strcat(tmp, buff);
+		free(tmp);
+		if (ft_strchr(list[fd], '\n'))
 			break ;
-		else if (*line && fds[fd][0] != 0)
-			return (1);
+		ret = read(fd, buff, BUFFER_SIZE);
 	}
-	if (fds[fd])
-		free(fds[fd]);
-	return (ret[0]);
+	if (ret == -1)
+		return (-1);
+	return (get_line(&list[fd], line, ret));
 }

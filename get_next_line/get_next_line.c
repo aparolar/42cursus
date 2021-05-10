@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/10 17:29:08 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 22:39:57 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,28 @@ static char	*ft_strrem(const char *s, size_t start, size_t len)
 	return (st);
 }
 
-static int	get_line(char **buffer, char **line)
+static int	get_line(char **buffer, char **line, int bytes)
 {
 	char	*s;
-	int		ret;
 
 	s = *buffer;
-	ret = 0;
-	if (!*buffer)
+	if (!s)
 		*line = ft_calloc(1, sizeof(char));
 	else if (!ft_strchr(s, '\n'))
-		*line = s;
+	{
+		*line = ft_substr(s, 0, ft_strlen(s));
+		free(s);
+		*buffer = 0;
+	}
 	else
 	{
 		*line = ft_substr(s, 0, ft_strchr(s, '\n') - s);
-		s = ft_strrem(s, 0, ft_strchr(s, '\n') - s + 1);
-		free(*buffer);
-		*buffer = s;
-		ret = 1;
+		*buffer = ft_strrem(s, 0, ft_strchr(s, '\n') - s + 1);
+		free(s);
+		s = 0;
+		bytes = 1;
 	}
-	return (ret);
+	return (bytes);
 }
 
 int	get_next_line(int fd, char **line)
@@ -70,9 +72,8 @@ int	get_next_line(int fd, char **line)
 	char		*tmp;
 	int			ret;
 
-	if (read(fd, buff, 0) < 0 || !line || BUFFER_SIZE < 1 )
+	if (fd < 0 || read(fd, buff, 0) < 0 || !line || BUFFER_SIZE < 1 )
 		return (-1);
-	*line = 0;
 	ret = read(fd, buff, BUFFER_SIZE);
 	while (ret > 0)
 	{
@@ -82,10 +83,11 @@ int	get_next_line(int fd, char **line)
 		tmp = list[fd];
 		list[fd] = ft_strcat(tmp, buff);
 		free(tmp);
-		tmp = 0;
 		if (ft_strchr(list[fd], '\n'))
 			break ;
 		ret = read(fd, buff, BUFFER_SIZE);
 	}
-	return (get_line(&list[fd], line));
+	if (ret == -1)
+		return (-1);
+	return (get_line(&list[fd], line, ret));
 }
