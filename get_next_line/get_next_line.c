@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/09 22:57:30 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 17:29:08 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,51 +41,51 @@ static char	*ft_strrem(const char *s, size_t start, size_t len)
 	return (st);
 }
 
-static char	*get_line(char **fd, char **line, int *ret)
+static int	get_line(char **buffer, char **line)
 {
 	char	*s;
-	char	*si;
-	char	*st;
+	int		ret;
 
-	s = *fd;
-	if (!ft_strchr(s, '\n'))
-	{
-		*line = ft_substr(s, 0, ft_strlen(s));
-		free(*fd);
-	}
+	s = *buffer;
+	ret = 0;
+	if (!*buffer)
+		*line = ft_calloc(1, sizeof(char));
+	else if (!ft_strchr(s, '\n'))
+		*line = s;
 	else
 	{
-		*line = ft_substr(s, 0, )
+		*line = ft_substr(s, 0, ft_strchr(s, '\n') - s);
+		s = ft_strrem(s, 0, ft_strchr(s, '\n') - s + 1);
+		free(*buffer);
+		*buffer = s;
+		ret = 1;
 	}
+	return (ret);
 }
-
-/*
-**  el maximo de descriptores abiertos en el sistema viene determinado por
-**  FD_SETSIZE por motivos de eficiencia de memoria lo reduzco a 256
-*/
 
 int	get_next_line(int fd, char **line)
 {
-	static char	*fds[4096];
+	static char	*list[4096];
 	char		buff[BUFFER_SIZE + 1];
 	char		*tmp;
 	int			ret;
 
-	if (fd < 0 || !line || BUFFER_SIZE < 1)
+	if (read(fd, buff, 0) < 0 || !line || BUFFER_SIZE < 1 )
 		return (-1);
 	*line = 0;
 	ret = read(fd, buff, BUFFER_SIZE);
 	while (ret > 0)
 	{
 		buff[ret] = 0;
-		if (!fds[fd])
-			fds[fd] = ft_calloc(1, sizeof(char));
-		tmp = fds[fd];
-		fds[fd] = ft_strcat(fds[fd], buff);
+		if (!list[fd])
+			list[fd] = ft_calloc(1, sizeof(char));
+		tmp = list[fd];
+		list[fd] = ft_strcat(tmp, buff);
 		free(tmp);
-		if (ft_strchr(fds[fd], '\n'))
+		tmp = 0;
+		if (ft_strchr(list[fd], '\n'))
 			break ;
 		ret = read(fd, buff, BUFFER_SIZE);
 	}
-	return (get_line(&fds[fd], line, &ret));
+	return (get_line(&list[fd], line));
 }

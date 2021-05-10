@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:02:54 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/09 12:04:17 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 16:23:35 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stddef.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 42
 # endif
 
 int		get_next_line(int fd, char **line);

@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 12:21:52 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/09 12:02:49 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 12:43:22 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,6 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-char	*ft_bzero(const char *s, size_t n)
-{
-	char	*ps;
-
-	ps = (char *)s;
-	while (n > 0)
-		*(ps + --n) = 0;
-	return (ps);
-}
-*/
 
 char	*ft_substr(char const *s, size_t start, size_t len)
 {
@@ -115,20 +104,3 @@ void	*ft_calloc(size_t count, size_t size)
 		ret[--size] = 0;
 	return (ret);
 }
-
-/*
-char	*ft_memcpy(char *s1, const char *s2, size_t n)
-{
-	char	*ps1;
-	char	*ps2;
-
-	ps1 = (char *)s1;
-	ps2 = (char *)s2;
-	while (n > 0)
-	{
-		ps1[n - 1] = ps2[n - 1];
-		n--;
-	}
-	return (ps1);
-}
-*/
