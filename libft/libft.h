@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/03 00:42:03 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:33:59 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 int		ft_intlen(int n);
 int		ft_longlen(long n);
+char	*ft_strrem(const char *s, size_t start, size_t len);
 
 #endif
