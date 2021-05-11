@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 10:01:14 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/20 11:12:34 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/21 12:02:54 by aparolar          #+#    #+#             */
+/*   Updated: 2021/05/11 13:07:27 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*node;
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	node = malloc(sizeof(t_list));
-	if (node)
-	{
-		node->content = content;
-		node->next = NULL;
-	}
-	return (node);
-}
+int		get_next_line(int fd, char **line);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(const char *s, size_t start, size_t len);
+char	*ft_strcat(const char *s1, const char *s2);
+size_t	ft_strlen(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+
+#endif

@@ -6,12 +6,14 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 12:25:29 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/10 21:07:27 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/11 12:52:36 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <unistd.h>
+#include <stdio.h>
+
 
 int	main(void)
 {

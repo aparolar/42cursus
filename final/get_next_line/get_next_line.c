@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 13:05:39 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/11 13:54:29 by aparolar         ###   ########.fr       */
+/*   Created: 2021/04/21 12:17:56 by aparolar          #+#    #+#             */
+/*   Updated: 2021/05/10 22:39:57 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 static char	*ft_strrem(const char *s, size_t start, size_t len)
 {
