@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/10 23:34:37 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/12 17:03:06 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-CC			=	gcc $(FLAGS) -I. 
+CC			=	gcc $(FLAGS) -I. -O3
 
 FLAGS		=	-Wall -Wextra -Werror
 
@@ -41,15 +41,15 @@ DEBFLAGSX	=	$(FLAGS) -g3 -fsanitize=address
 
 NAME		=	libft.a
 
-$(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJS) $(OBJS_BONUS)
+			ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 			make clean
 
 all:		$(NAME)
 
-bonus:		$(OBJS) $(OBJS_BONUS)
-			ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
-			make clean
+#bonus:		$(OBJS) $(OBJS_BONUS)
+#			ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+#			make clean
 
 clean:
 			rm -f $(OBJS)
