@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/18 15:38:11 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/18 18:43:44 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ SRCS		=	ft_memset.c\
 
 OBJS		=	$(SRCS:.c=.o)
 
-CC			=	gcc $(FLAGS) -I. -O3
+CC			=	@gcc $(FLAGS) -I. -O3
 
 FLAGS		=	-Wall -Wextra -Werror
 
@@ -80,13 +80,29 @@ DEBFLAGSX	=	$(FLAGS) -g3 -fsanitize=address
 NAME		=	libft.a
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
-			@make clean 2> /dev/null
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                           Making LIBFT                             \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo ""
+			@ar rcs $(NAME) $(OBJS)
+			@make -s clean
 
 all:		$(NAME)
 
 clean:
-			@rm -f $(OBJS) 2>/dev/null
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                          Cleaning LIBFT                            \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo ""
+			@rm -f $(OBJS)
 
 debug:		fclean
 			make re FLAGS="$(DBGFLAGS)"
@@ -95,15 +111,24 @@ debug:		fclean
 test:		re
 			gcc $(DBGFLAGS) -I. libft.a mmain.c -o a.out
 			./a.out
-			rm -f *.o
+			@rm -f *.o
 
 # for linux
 so:			re
 			$(CC) -fPIC $(CFLAGS) $(SRCS)
 			gcc -shared -o libft.so $(OBJS)
 
-fclean:		clean
-			@rm -f $(NAME) 2> /dev/null
+fclean:		
+			@make -s clean
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                         Removing libft.a                           \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;44m                                                                    \033[0m"
+			@echo "\033[1;1;42m                                                                    \033[0m"
+			@echo ""
+			@rm -f $(NAME)
 
 re:			fclean all
 
