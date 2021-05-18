@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/18 11:23:06 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:00:03 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <limits.h>
 # include <stdio.h>
 # include <unistd.h>
+
+/*
+**  Defines
+*/
+
+# define GNL_BUFFER_SIZE 1024
 
 /*
 **  Simple List
@@ -115,6 +121,13 @@ char		*ft_ltoa(long n);
 */
 
 char		*ft_strrem(const char *s, size_t start, size_t len);
+char		*ft_strcat(const char *s1, const char *s2);
+
+/*
+**  Files
+*/
+
+int			get_next_line(int fd, char **line);
 
 /*
 **  Especial lists

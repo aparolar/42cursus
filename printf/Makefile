@@ -6,11 +6,11 @@
 #    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/12 16:29:09 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/18 13:27:32 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT		=	../libft
+LIBFT		=	libft
 
 LIBS		=	$(LIBFT)/libft.a
 

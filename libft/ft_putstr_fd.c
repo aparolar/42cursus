@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 16:42:56 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 16:48:18 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:42:01 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	ft_putstr_fd(char *s, int fd)
 	{
 		while (*s)
 		{
-			write(fd, (char *)s, 1);
-			s++;
+			if (write(fd, (char *)s, 1) >= 0)
+				s++;
+			else
+				s++;
 		}
 	}
 }
