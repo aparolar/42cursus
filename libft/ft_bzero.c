@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:50:55 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/08 17:43:50 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:40:39 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	while (n > 0)
+		((char *)s)[--n] = 0;
 }

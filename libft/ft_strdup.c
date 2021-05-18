@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 09:48:48 by aparolar          #+#    #+#             */
-/*   Updated: 2021/04/16 10:09:35 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:59:00 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	ptr = (char *)ft_calloc(len + 1, sizeof(char));
+	ptr = malloc((len + 1) * sizeof(char));
+	ptr[len] = 0;
 	if (ptr)
 		return (ft_memcpy(ptr, s1, len));
 	return (0);
