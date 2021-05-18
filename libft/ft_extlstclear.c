@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_extlstclear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/16 16:38:08 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/17 18:41:09 by aparolar         ###   ########.fr       */
+/*   Created: 2021/05/18 11:18:48 by aparolar          #+#    #+#             */
+/*   Updated: 2021/05/18 11:22:36 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_extlstclear(t_extlst *lst, void (*del)(void *))
 {
-	if (fd)
-		write(fd, &c, 1);
+	t_extlst	*ndel;
+
+	if (lst && del)
+	{
+		ndel = lst;
+		while (lst)
+		{
+			ndel = lst->after;
+			ft_extlstdelone(lst, del);
+			lst = ndel;
+		}
+	}
 }

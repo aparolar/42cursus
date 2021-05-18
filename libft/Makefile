@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/12 17:03:06 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/18 11:23:39 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS		=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 				ft_substr.c ft_strjoin.c ft_strtrim.c ft_putchar_fd.c\
 				ft_putstr_fd.c ft_putendl_fd.c ft_itoa.c ft_putnbr_fd.c\
 				ft_strmapi.c ft_split.c ft_intlen.c ft_longlen.c\
-				ft_atol.c ft_strrem.c
+				ft_atol.c ft_strrem.c ft_ltoa.c ft_extlstnew.c\
+				ft_extlstaddbefore.c ft_extlstaddafter.c ft_extlstclone.c\
+				ft_extlstdelone.c ft_extlstclear.c
 
 SRCS_BONUS	=	ft_lstnew.c ft_lstadd_front.c\
 				ft_lstsize.c ft_lstlast.c\
@@ -31,7 +33,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-CC			=	gcc $(FLAGS) -I. -O3
+CC			=	gcc $(FLAGS) -I.
 
 FLAGS		=	-Wall -Wextra -Werror
 
