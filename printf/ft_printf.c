@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:56:06 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/22 18:57:08 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:20:26 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ void	ft_do_conv(t_conv *tc)
 
 int		ft_printf(const char *s, ...)
 {
-	t_conv	sconv;
+	t_conv	tc;
 
 	if (!s || !*s)
 		return (0);
-	(&sconv)->str = (char *)s;
-	(&sconv)->args = 0;
-	va_start((&sconv)->pva, s);
-	while (*(&sconv)->str)
+	(&tc)->str = (char *)s;
+	(&tc)->args = 0;
+	va_start((&tc)->pva, s);
+	while (*(&tc)->str)
 	{
-		if (*(&sconv)->str == '%')
+		if (*(&tc)->str == '%')
 		{
-			(&sconv)->str++;
-			ft_do_conv(&sconv);
+			(&tc)->str++;
+			ft_do_conv(&tc);
 		}
 		else
-			ft_putchar(*(&sconv)->str);
-		(&sconv)->str++;
+			ft_putchar(*(&tc)->str);
+		(&tc)->str++;
 	}
-	va_end((&sconv)->pva);
-	return ((&sconv)->args);
+	va_end((&tc)->pva);
+	return ((&tc)->args);
 }
