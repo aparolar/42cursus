@@ -1,0 +1,19 @@
+#! /bin/bash
+
+a=$( echo $1 | sed  "s/\.c//" ) # strip the file extension .c
+
+# compile binary with minimal information
+gcc -fno-asynchronous-unwind-tables -s -c ${a}.c 
+
+# convert the executable to nasm format
+./objconv/objconv -fnasm ${a}.o 
+
+# remove unnecesairy objconv information
+sed -i "s/align=1//g ; s/[a-z]*execute//g ; s/: *function//g;  /default *rel/d" ${a}.asm
+
+# run nasm for 64-bit binary
+
+nasm -f elf64 ${a}.asm 
+
+# link --> see comment of MichaelPetch below
+ld -m elf_x86_64 -s ${a}.o 
