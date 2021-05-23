@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/22 15:02:12 by aparolar         ###   ########.fr        #
+#    Updated: 2021/05/23 09:47:53 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,7 @@ so:			re
 			gcc -shared -o libft.so $(OBJS)
 
 fclean:		
-			@make -s clean
+			#@make -s clean
 			@echo "\033[1;1;42m                                                                    \033[0m"
 			@echo "\033[1;1;44m                                                                    \033[0m"
 			@echo "\033[1;1;44m                                                                    \033[0m"
@@ -129,8 +129,8 @@ fclean:
 			@echo "\033[1;1;44m                                                                    \033[0m"
 			@echo "\033[1;1;42m                                                                    \033[0m"
 			@echo ""
-			@rm -f $(NAME)
+			@rm -rf $(NAME)
 
-re:			fclean all
+re:			clean fclean all
 
 .PHONY: 	all clean fclean re

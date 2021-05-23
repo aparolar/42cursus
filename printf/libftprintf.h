@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/22 18:54:09 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/05/23 10:29:35 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ typedef struct	s_conv
 	int		rpadd;
 	int		precision;
 	int		width;
+	int		asterisk;
 	char	type;
+	void	*asterisk_v1;
+	void	*asterisk_v2;
+	void	*value;
 	int		args;
 }			t_conv;
 
