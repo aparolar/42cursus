@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/23 09:47:12 by aparolar         ###   ########.fr        #
+#    Updated: 2021/06/26 12:46:32 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ $(NAME):		$(OBJS)
 				@printf "\n\n"
 				@$(MAKE) -C $(LIBFT)
 				@ar rcs $(NAME) $(OBJS)
+				@$(MAKE) clean
 
 all:			$(NAME)
 				@rm -rf $(OBJS)
