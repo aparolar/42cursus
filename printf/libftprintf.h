@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/23 10:29:35 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/02 23:40:05 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFTPRINTF_H
 
 # include "libft/libft.h"
+
+/*
+**  Defines
+*/
+
+# define TYPES "cspdiuxX%"
 
 /*
 **  structs;
