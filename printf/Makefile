@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/09 11:27:20 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/11 12:45:53 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS		=	ft_printf.c\
 				ft_parse_i.c\
 				ft_parse_u.c\
 				ft_parse_x.c\
-				ft_parse_X.c\
+				ft_parse_ux.c\
 				ft_parse_perback.c\
 				$(LIBFT)/ft_putchar.c\
 				$(LIBFT)/ft_putstr.c\

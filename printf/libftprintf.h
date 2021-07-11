@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 06:44:06 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/11 12:46:12 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_parse_d(t_printf *tc);
 void	ft_parse_i(t_printf *tc);
 void	ft_parse_u(t_printf *tc);
 void	ft_parse_x(t_printf	*tc);
-void	ft_parse_X(t_printf *tc);
+void	ft_parse_ux(t_printf *tc);
 void	ft_parse_perback(t_printf *tc);
 
 #endif

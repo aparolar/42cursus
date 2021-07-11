@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_X.c                                       :+:      :+:    :+:   */
+/*   ft_parse_ux.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 00:10:50 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 05:39:01 by aparolar         ###   ########.fr       */
+/*   Created: 2021/07/11 12:45:29 by aparolar          #+#    #+#             */
+/*   Updated: 2021/07/11 12:45:38 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_parse_X(t_printf *tc)
+void	ft_parse_ux(t_printf *tc)
 {
 }
