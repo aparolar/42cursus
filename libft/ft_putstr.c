@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_x.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 00:09:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 05:38:46 by aparolar         ###   ########.fr       */
+/*   Created: 2021/07/09 05:28:44 by aparolar          #+#    #+#             */
+/*   Updated: 2021/07/09 05:41:26 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_parse_x(t_printf *tc)
+void	ft_putstr(char *str)
 {
+	if (str)
+	{
+		while (*str)
+		{
+			if (write(1, str, 1))
+				*str += 0;
+			str++;
+		}
+	}
 }

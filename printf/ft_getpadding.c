@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-void	ft_getpadding(t_conv *tc)
+void	ft_getpadding(t_printf *tc)
 {
 	tc->lpadd = 0;
 	tc->rpadd = 0;

@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/02 23:40:05 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/09 06:44:06 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFTPRINTF_H
 
 # include "libft/libft.h"
+# include <stdio.h> //eliminar al acabar
 
 /*
 **  Defines
@@ -26,25 +27,35 @@
 **
 */
 
-typedef struct	s_conv
+typedef struct s_printf
 {
 	char	*str;
-	va_list	pva;
-	int		lpadd;
-	int		rpadd;
-	int		precision;
+	va_list	args;
+	int		flag_minus;
+	int		flag_zero;
 	int		width;
-	int		asterisk;
+	int		dot;
+	int		precision;
+	int		flag_pre_va;
+	int		num_m;
 	char	type;
-	void	*asterisk_v1;
-	void	*asterisk_v2;
-	void	*value;
-	int		args;
-}			t_conv;
+	int		itsok;
+}			t_printf;
 
 int		ft_printf(const char *s, ...);
-void	ft_getwidth(t_conv *tc);
-void	ft_getpadding(t_conv *tc);
-void	ft_getprecision(t_conv *tc);
+void	ft_reset_t_printf(t_printf *tc);
+void	ft_padding(int width, char c);
+int		ft_preparse(t_printf *tc);
+int		ft_check_arg(t_printf *tc);
+int		ft_parsebypass(t_printf *tc);
+void	ft_parse_c(t_printf *tc);
+void	ft_parse_s(t_printf *tc);
+void	ft_parse_p(t_printf *tc);
+void	ft_parse_d(t_printf *tc);
+void	ft_parse_i(t_printf *tc);
+void	ft_parse_u(t_printf *tc);
+void	ft_parse_x(t_printf	*tc);
+void	ft_parse_X(t_printf *tc);
+void	ft_parse_perback(t_printf *tc);
 
 #endif

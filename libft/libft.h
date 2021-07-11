@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 15:48:46 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/22 15:01:39 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/09 05:31:17 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,8 @@ int			get_next_line(int fd, char **line);
 **  Print in screen
 */
 
-void	ft_putchar(char c);
+void		ft_putchar(char c);
+void		ft_putstr(char *str);
 
 /*
 **  Especial lists

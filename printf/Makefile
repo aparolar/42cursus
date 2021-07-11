@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/06/26 12:46:32 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/09 11:27:20 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,33 @@ LIBFT		=	./libft
 LIBS		=	$(LIBFT)/libft.a
 
 SRCS		=	ft_printf.c\
-				ft_getwidth.c\
-				ft_getpadding.c\
-				ft_getprecision.c\
+				ft_utils.c\
+				ft_flagutils.c\
+				ft_preparse.c\
+				ft_check.c\
+				ft_parsebypass.c\
+				ft_parse_s.c\
+				ft_parse_c.c\
+				ft_parse_p.c\
+				ft_parse_d.c\
+				ft_parse_i.c\
+				ft_parse_u.c\
+				ft_parse_x.c\
+				ft_parse_X.c\
+				ft_parse_perback.c\
+				$(LIBFT)/ft_putchar.c\
+				$(LIBFT)/ft_putstr.c\
+				$(LIBFT)/ft_strlen.c\
+				$(LIBFT)/ft_atoi.c\
+				$(LIBFT)/ft_isdigit.c\
+
 
 OBJS		=	$(SRCS:.c=.o)
+LOBJ		=	$(SRCS:$LIBFT/.c=$LIBFT/.o)
 
 CC			=	@gcc $(FLAGS) -I. -I$(LIBFT)
 
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	#-Wall -Wextra -Werror
 
 DBFLAGS		=	$(FLAGS) -g3
 
@@ -47,7 +65,7 @@ $(NAME):		$(OBJS)
 				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
 				@printf "\n\n"
 				@$(MAKE) -C $(LIBFT)
-				@ar rcs $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS) $(LOBJ) $(LIBFT)/libft.a
 				@$(MAKE) clean
 
 all:			$(NAME)
@@ -84,6 +102,7 @@ test:			re
 				@rm -rf *.o
 				@chmod u+x test
 				./test
+				@rm test
 
 test_asm:		all
 				@$(CC) -S -O3  main.c -o $(TEST_NAME).s $(NAME) $(LIBS)

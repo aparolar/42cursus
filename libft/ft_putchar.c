@@ -14,6 +14,6 @@
 
 void	ft_putchar(char	c)
 {
-	if (write(1,&c,1) == 0)
+	if (write(1, &c, 1) == 0)
 		c += 0;
 }

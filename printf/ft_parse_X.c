@@ -6,12 +6,12 @@
 /*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 00:10:50 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/03 00:11:37 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/09 05:39:01 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_parse_X(t_conv *tc)
+void	ft_parse_X(t_printf *tc)
 {
 }

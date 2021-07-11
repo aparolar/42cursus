@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-void	ft_getwidth(t_conv *tc)
+void	ft_getwidth(t_printf *tc)
 {
 	tc->width = 0;
 	while (ft_isdigit(*tc->str))

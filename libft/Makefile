@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/05/23 09:47:53 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/09 10:55:33 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ SRCS		=	ft_memset.c\
 				ft_lstclear.c\
 				ft_lstiter.c\
 				ft_lstmap.c\
-				ft_putchar.c
+				ft_putchar.c\
+				ft_putstr.c
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -90,7 +91,7 @@ $(NAME):	$(OBJS)
 			@echo "\033[1;1;42m                                                                    \033[0m"
 			@echo ""
 			@ar rcs $(NAME) $(OBJS)
-			@make -s clean
+			#@make -s clean
 
 all:		$(NAME)
 
