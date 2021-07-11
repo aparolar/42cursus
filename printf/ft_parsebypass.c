@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:07:21 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 05:27:45 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/11 12:48:44 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_parsebypass(t_printf *tc)
 		else if (tc->type == 'x')
 			ft_parse_x(tc);
 		else if (tc->type == 'X')
-			ft_parse_X(tc);
+			ft_parse_ux(tc);
 		else if (tc->type == '%')
 			ft_parse_perback(tc);
 	}
