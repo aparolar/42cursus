@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsebypass.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: bekram <bekram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 19:07:21 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/11 12:48:44 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/11 17:36:36 by bekram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	ft_parsebypass(t_printf *tc)
 			ft_parse_ux(tc);
 		else if (tc->type == '%')
 			ft_parse_perback(tc);
+		if (tc->itsok)
+			tc->str++;
 	}
 	return (tc->itsok);
 }

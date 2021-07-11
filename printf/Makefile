@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+         #
+#    By: bekram <bekram@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/11 12:45:53 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/11 17:15:00 by bekram           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ LOBJ		=	$(SRCS:$LIBFT/.c=$LIBFT/.o)
 
 CC			=	@gcc $(FLAGS) -I. -I$(LIBFT)
 
-FLAGS		=	#-Wall -Wextra -Werror
+FLAGS		=	-g3 #-Wall -Wextra -Werror
 
 DBFLAGS		=	$(FLAGS) -g3
 
@@ -98,11 +98,11 @@ fclean:
 re:				clean fclean all
 
 test:			re
-				@$(CC) -L. -L$(LIBFT) main.c -o $(TEST_NAME) -lftprintf -lft
+				rm -rf test
+				@$(CC) -L. -L$(LIBFT) main.c -o test -lftprintf -lft
 				@rm -rf *.o
-				@chmod u+x test
-				./test
-				@rm test
+				#@chmod u+x test
+				#./test
 
 test_asm:		all
 				@$(CC) -S -O3  main.c -o $(TEST_NAME).s $(NAME) $(LIBS)
