@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid>       +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/11 12:46:12 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/11 23:29:23 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_printf
 	int		dot;
 	int		precision;
 	int		flag_pre_va;
-	int		num_m;
+	int		len;
 	char	type;
 	int		itsok;
 }			t_printf;

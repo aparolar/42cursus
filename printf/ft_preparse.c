@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_preparse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 00:16:45 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 07:10:20 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/11 23:23:35 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

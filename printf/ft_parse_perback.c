@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 00:14:14 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 05:39:44 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/12 10:33:36 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@
 
 void	ft_parse_perback(t_printf *tc)
 {
+	ft_putchar('%');
+	tc->len++;
 }

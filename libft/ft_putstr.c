@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekram <bekram@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 05:28:44 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/11 17:22:24 by bekram           ###   ########.fr       */
+/*   Updated: 2021/07/11 23:23:30 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	ft_putstr(char *str)
 {
-	if (str)
+	char	*pstr;
+
+	pstr = (char*)str;
+	if (pstr)
 	{
-		while (*str)
+		while (*pstr)
 		{
-			if (write(1, str, 1))
-				str += 0;
-			str++;
+			if (write(1, pstr, 1))
+				pstr += 0;
+			pstr++;
 		}
 	}
 }

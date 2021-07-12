@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekram <bekram@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:56:06 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/11 17:33:55 by bekram           ###   ########.fr       */
+/*   Updated: 2021/07/12 12:36:00 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,21 @@ int	ft_printf(const char *s, ...)
 		return (0);
 	(&tc)->str = (char *)s;
 	va_start((&tc)->args, s);
+	(&tc)->len = 0;
 	while (*(&tc)->str)
 	{
 		str = (&tc)->str;
 		ft_reset_t_printf(&tc);
 		ft_preparse(&tc);
 		if  (!(&tc)->itsok)
+		{
 			(&tc)->str = str;
-		ft_putchar(*(&tc)->str);
-		(&tc)->str++;
+			ft_putchar(*(&tc)->str);
+			(&tc)->len++;
+			(&tc)->str++;
+		}
 	}
+	ft_reset_t_printf(&tc);
 	va_end((&tc)->args);
-	return (1);
+	return ((&tc)->len);
 }

@@ -6,12 +6,22 @@
 
 int	main(void)
 {
+	int	a;
+	int	b;
+	int	c;
 	printf("%s\n", TYPES);
 	//printf("%p\n", &TYPES);
-	printf("printf    [%-6s|%-10d|%010d|%-10d|%-10d]\n", "abcd", 2, 3, 4, 5);
+	//printf("%lu\n", ft_strlen(""));
+	//a = printf("printf    [%s]","");
+	//printf("\n\n\n");
+	b = 0;//ft_printf("ft_printf [%s]", "");
+	//printf("\n\n\n");
+	//c = ft_printf("%s%s%s", "1", "2", "3's a charm");
+	a = printf("%23s", NULL);
+	printf("\n");
+	c = ft_printf("%23s", NULL);
 	printf("\n\n\n");
-	ft_printf("ft_printf [%s|%-10d|%010d|%-10d|%-10d]\n", "0", 2, 3, 4, 5);
-	printf("\n\n\n");
+	printf("a = %d , b = %d, c = %d\n",a,b,c);
 	//printf("%ld\n", sizeof(long long));
 /*	if (system ("valgrind -s test") == 0)
 		return (0);*/
