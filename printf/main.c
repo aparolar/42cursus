@@ -19,7 +19,7 @@ int	main(void)
 	//c = ft_printf("%s%s%s", "1", "2", "3's a charm");
 	a = printf("%23s", NULL);
 	printf("\n");
-	c = ft_printf("%23s", NULL);
+	c = ft_printf("%4s %4s", "123", "4567");
 	printf("\n\n\n");
 	printf("a = %d , b = %d, c = %d\n",a,b,c);
 	//printf("%ld\n", sizeof(long long));

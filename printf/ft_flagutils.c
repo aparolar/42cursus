@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flagutils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 06:39:47 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/09 06:54:02 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/12 14:39:13 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_padding(int width, char c)
 {
-	printf("%d", width);
 	while (width-- > 0)
 		ft_putchar(c);
 }

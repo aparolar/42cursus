@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/11 23:29:23 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:55:53 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@
 # define TYPES "cspdiuxX%"
 
 /*
-**  structs;
-**
+**  Structures;
 */
 
 typedef struct s_printf
 {
 	char	*str;
 	va_list	args;
+	void	*arg;
 	int		flag_minus;
 	int		flag_zero;
 	int		width;
@@ -41,6 +41,10 @@ typedef struct s_printf
 	char	type;
 	int		itsok;
 }			t_printf;
+
+/*
+**  Functions
+*/
 
 int		ft_printf(const char *s, ...);
 void	ft_reset_t_printf(t_printf *tc);

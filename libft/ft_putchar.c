@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 14:58:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/05/22 15:03:10 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:56:50 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

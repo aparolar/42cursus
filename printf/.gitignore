@@ -1,1 +1,6 @@
 printfTester
+ft_printf_test
+pft
+*.o
+*.a
+test
