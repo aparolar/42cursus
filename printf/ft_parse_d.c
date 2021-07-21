@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 23:56:16 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/21 12:47:30 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/21 14:48:51 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ static void	print_default(t_printf *tc, int value, char *str)
 	{
 		tc->len += ft_padding(tc->width, ' ');
 		if (value < 0)
-			tc->len += ft_putchar(*(str++));
+		{
+			tc->len += ft_putchar(*str);
+			str++;
+		}
 		tc->len += ft_padding(tc->o_prec - ft_strlen(str), '0');
 		tc->len += ft_putstr(str);
 	}
@@ -126,7 +129,10 @@ static void	print_default_minus(t_printf *tc, int value, char *str)
 	else
 	{
 		if (value < 0)
-			tc->len += ft_putchar(*(str++));
+		{
+			tc->len += ft_putchar(*str);
+			str++;
+		}
 		tc->len += ft_padding(tc->o_prec - ft_strlen(str), '0');
 		tc->len += ft_putstr(str);
 		tc->len += ft_padding(tc->width, ' ');
