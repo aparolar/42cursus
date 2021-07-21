@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:56:06 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 12:36:00 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/12 23:07:11 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_printf(const char *s, ...)
 			(&tc)->str++;
 		}
 	}
-	ft_reset_t_printf(&tc);
 	va_end((&tc)->args);
 	return ((&tc)->len);
 }

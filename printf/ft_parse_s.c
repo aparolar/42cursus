@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 23:53:34 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 18:28:54 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:18:48 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		calc(t_printf *tc, char *arg)
 	{
 		if (tc->arg && len > tc->precision)
 			len = tc->precision;
-		else if (!tc->arg && tc->precision < len)
+		else if (!tc->arg && tc->precision < len - 1)
 			len = 0;
 	}
 	return (len);
@@ -41,13 +41,13 @@ void	ft_parse_s(t_printf *tc)
 	len = calc(tc, s);
 	i = 0;
 	if (!tc->flag_minus || (!tc->flag_minus && tc->width > len))
-		ft_padding(tc->width - len, ' ');
+		tc->len += ft_padding(tc->width - len, ' ');
 	
 	while (i < len)
 	{
 		ft_putchar(s[i++]);
 	}
 	if (tc->flag_minus)
-		ft_padding(tc->width - len, ' ');
+		tc->len += ft_padding(tc->width - len, ' ');
 	tc->len += len;
 }

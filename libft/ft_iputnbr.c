@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flagutils.c                                     :+:      :+:    :+:   */
+/*   ft_iputnbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/09 06:39:47 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 23:11:38 by aparolar         ###   ########.fr       */
+/*   Created: 2021/07/13 21:09:18 by aparolar          #+#    #+#             */
+/*   Updated: 2021/07/15 12:26:17 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	ft_padding(int width, char c)
+int	ft_iputnbr(int n)
 {
-	int	ret;
+	int		len;
+	long	no;
+	char	c;
 
-	ret = width;
-	if (ret < 0)
-		ret = 0;
-	while (width-- > 0)
+	no = n;
+	len = 0;
+	if (no < 0)
+	{
+		ft_putchar('-');
+		no = -n;
+		len++;
+	}
+	if (no > 0)
+	{	
+		c = (no % 10) + 48;
+		no /= 10;
+		len += ft_iputnbr(no);
 		ft_putchar(c);
-	return (ret);
+		len++;
+	}
+ 	return (len);
 }

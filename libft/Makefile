@@ -6,7 +6,7 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 17:36:51 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/11 23:11:56 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/13 22:18:48 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,9 @@ SRCS		=	ft_memset.c\
 				ft_lstiter.c\
 				ft_lstmap.c\
 				ft_putchar.c\
-				ft_putstr.c
+				ft_putstr.c\
+				ft_iputnbr.c\
+
 
 OBJS		=	$(SRCS:.c=.o)
 

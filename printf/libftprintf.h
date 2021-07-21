@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 15:55:53 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/20 19:02:14 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ typedef struct s_printf
 	int		flag_minus;
 	int		flag_zero;
 	int		width;
+	int		o_width;
 	int		dot;
 	int		precision;
-	int		flag_pre_va;
+	int		o_prec;
+	//int		flag_pre_va;
+	int		null_dot;
+	int		zero_dot;
 	int		len;
 	char	type;
 	int		itsok;
@@ -48,7 +52,7 @@ typedef struct s_printf
 
 int		ft_printf(const char *s, ...);
 void	ft_reset_t_printf(t_printf *tc);
-void	ft_padding(int width, char c);
+int		ft_padding(int width, char c);
 int		ft_preparse(t_printf *tc);
 int		ft_check_arg(t_printf *tc);
 int		ft_parsebypass(t_printf *tc);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bekram <bekram@student.42.fr>              +#+  +:+       +#+         #
+#    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/11 23:12:19 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/13 22:19:08 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CLBGBFGW	=	"\033[1;44m"
 
 MAKE		=	@make -s
 
-LIBFT		=	./libft
+LIBFT		=	libft
 
 LIBS		=	$(LIBFT)/libft.a
 
@@ -40,12 +40,15 @@ SRCS		=	ft_printf.c\
 				$(LIBFT)/ft_strlen.c\
 				$(LIBFT)/ft_atoi.c\
 				$(LIBFT)/ft_isdigit.c\
-
+				$(LIBFT)/ft_itoa.c\
+				$(LIBFT)/ft_intlen.c\
+				$(LIBFT)/ft_calloc.c\
+				$(LIBFT)/ft_iputnbr.c\
 
 OBJS		=	$(SRCS:.c=.o)
-LOBJ		=	$(SRCS:$LIBFT/.c=$LIBFT/.o)
+LOBJ		=	$(SRCS:$(LIBFT)/.c=$(LIBFT)/.o)
 
-CC			=	@gcc $(FLAGS) -I. -I$(LIBFT)
+CC			=	@gcc $(FLAGS) -I. -I$(LIBFT) -L. -L$(LIBFT)
 
 FLAGS		=	-g3 #-Wall -Wextra -Werror
 
@@ -66,7 +69,7 @@ $(NAME):		$(OBJS)
 				@printf "\n\n"
 				@$(MAKE) -C $(LIBFT)
 				ar rcs $(NAME) $(OBJS) $(LOBJ) $(LIBFT)/libft.a
-				@$(MAKE) clean
+#				@$(MAKE) clean
 
 all:			$(NAME)
 				@rm -rf $(OBJS)

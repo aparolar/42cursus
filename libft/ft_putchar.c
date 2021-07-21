@@ -6,14 +6,14 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 14:58:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 13:56:50 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/20 19:55:19 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char	c)
+int	ft_putchar(char	c)
 {
 	if (write(1, &c, 1) == 0)
-		c += 0;
+		return (1);
 }
