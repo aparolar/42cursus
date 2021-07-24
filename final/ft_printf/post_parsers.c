@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 23:56:49 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/24 11:08:31 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/24 13:08:58 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,8 @@ void	ft_parse_p(t_printf *tc)
 	if (ptr)
 	{
 		tc->len += ft_padding(tc->width - ft_strlen(ptr) - 2, ' ');
-		if (value)
-		{
-			tc->len += ft_putstr("0x");
-			tc->len += ft_putstr(ptr);
-		}
-		else
-			tc->len += ft_putstr(NULL_POINTER);
+		tc->len += ft_putstr("0x");
+		tc->len += ft_putstr(ptr);
 		free(ptr);
 	}
 }

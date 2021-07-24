@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:57:53 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/24 11:21:09 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/24 13:08:04 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 
 # define TYPES "cspdiuxX%"
 # define HEX "0123456789abcdef"
-# define NULL_POINTER "(nil)"
 
 /*
 **  Structures;

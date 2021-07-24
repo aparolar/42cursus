@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 23:56:49 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/24 11:08:31 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/24 13:06:16 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ void	ft_parse_diu(t_printf *tc)
 	tc->len += ft_putstr(pstr);
 	free(pstr);
 }
+
+/*
+** Linux null pointer prints (nil) in Mac prints 0x0
+*/
 
 void	ft_parse_p(t_printf *tc)
 {

@@ -6,9 +6,11 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/24 11:07:11 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/24 13:07:35 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# version for Mac
 
 MAKE		=	make
 
@@ -28,7 +30,7 @@ SRCS		=	ft_printf.c\
 
 OBJS		=	$(SRCS:.c=.o)
 
-CC			=	gcc $(FLAGS) -I. -L.
+CC			=	gcc $(FLAGS) -I.
 
 FLAGS		=	-Wall -Wextra -Werror
 
