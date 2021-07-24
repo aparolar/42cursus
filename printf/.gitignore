@@ -1,6 +1,8 @@
 printfTester
-ft_printf_test
+ftprintftest
+printf-tester
 pft
+nv
 *.o
 *.a
 test

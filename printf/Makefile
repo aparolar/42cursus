@@ -6,111 +6,54 @@
 #    By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:37:58 by aparolar          #+#    #+#              #
-#    Updated: 2021/07/13 22:19:08 by aparolar         ###   ########.fr        #
+#    Updated: 2021/07/24 11:07:11 by aparolar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CLRST		=	"\033[0m"
-CLBGGFGW	=	"\033[1;42m"
-CLBGBFGW	=	"\033[1;44m"
-
-MAKE		=	@make -s
-
-LIBFT		=	libft
-
-LIBS		=	$(LIBFT)/libft.a
+MAKE		=	make
 
 SRCS		=	ft_printf.c\
-				ft_utils.c\
-				ft_flagutils.c\
 				ft_preparse.c\
-				ft_check.c\
-				ft_parsebypass.c\
-				ft_parse_s.c\
-				ft_parse_c.c\
-				ft_parse_p.c\
-				ft_parse_d.c\
-				ft_parse_i.c\
-				ft_parse_u.c\
-				ft_parse_x.c\
-				ft_parse_ux.c\
-				ft_parse_perback.c\
-				$(LIBFT)/ft_putchar.c\
-				$(LIBFT)/ft_putstr.c\
-				$(LIBFT)/ft_strlen.c\
-				$(LIBFT)/ft_atoi.c\
-				$(LIBFT)/ft_isdigit.c\
-				$(LIBFT)/ft_itoa.c\
-				$(LIBFT)/ft_intlen.c\
-				$(LIBFT)/ft_calloc.c\
-				$(LIBFT)/ft_iputnbr.c\
+				post_parsers.c\
+				printf_utils1.c\
+				printf_utils2.c\
+				ft_strlen.c\
+				ft_longlen.c\
+				ft_putchar.c\
+				ft_putstr.c\
+				ft_isdigit.c\
+				ft_ltoa.c\
+				ft_atol.c\
+				ft_calloc.c
 
 OBJS		=	$(SRCS:.c=.o)
-LOBJ		=	$(SRCS:$(LIBFT)/.c=$(LIBFT)/.o)
 
-CC			=	@gcc $(FLAGS) -I. -I$(LIBFT) -L. -L$(LIBFT)
+CC			=	gcc $(FLAGS) -I. -L.
 
-FLAGS		=	-g3 #-Wall -Wextra -Werror
-
-DBFLAGS		=	$(FLAGS) -g3
+FLAGS		=	-Wall -Wextra -Werror
 
 NAME		=	libftprintf.a
 
-TEST_NAME	=	test
-
 $(NAME):		$(OBJS)
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%40s%28s"$(CLRST)"\n" "Making libftprintf" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf "\n\n"
-				@$(MAKE) -C $(LIBFT)
-				ar rcs $(NAME) $(OBJS) $(LOBJ) $(LIBFT)/libft.a
-#				@$(MAKE) clean
+				ar rcs $(NAME) $(OBJS)
 
 all:			$(NAME)
 				@rm -rf $(OBJS)
 
 clean:			
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%40s%28s"$(CLRST)"\n" "Cleaning libftprintf" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf "\n"
-				@$(MAKE) -C $(LIBFT) clean
 				@rm -fr $(OBJS)
 
-fclean:			
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%40s%28s"$(CLRST)"\n" "Removing "$(NAME) ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGGFGW)"%68s"$(CLRST)"\n" ""
-				@printf $(CLBGBFGW)"%68s"$(CLRST)"\n" ""
-				@printf "\n"
-				@$(MAKE) -C $(LIBFT) fclean
+fclean:			clean
 				@rm -fr $(NAME)
 
 re:				clean fclean all
 
 test:			re
 				rm -rf test
-				@$(CC) -L. -L$(LIBFT) main.c -o test -lftprintf -lft
+				@$(CC) -L. main.c -o test -lftprintf
 				@rm -rf *.o
-				#@chmod u+x test
-				#./test
 
 test_asm:		all
-				@$(CC) -S -O3  main.c -o $(TEST_NAME).s $(NAME) $(LIBS)
+				@$(CC) -S -O3  main.c -o $(TEST_NAME).s $(NAME)
 
-ctest:			
-				@rm -rf $(TEST_NAME)
-
-.PHONY:			all clean faclean re
+.PHONY:			all clean fclean re

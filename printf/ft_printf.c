@@ -6,16 +6,23 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:56:06 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/12 23:07:11 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/07/24 11:07:55 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdarg.h>
 
 /*
 **  %[flags][width][.precision]type
 */
+
+void	ft_reset_t_printf(t_printf *tc)
+{
+	tc->width = 0;
+	tc->type = 0;
+	tc->itsok = 0;
+}
 
 int	ft_printf(const char *s, ...)
 {
@@ -32,11 +39,10 @@ int	ft_printf(const char *s, ...)
 		str = (&tc)->str;
 		ft_reset_t_printf(&tc);
 		ft_preparse(&tc);
-		if  (!(&tc)->itsok)
+		if (!(&tc)->itsok)
 		{
 			(&tc)->str = str;
-			ft_putchar(*(&tc)->str);
-			(&tc)->len++;
+			(&tc)->len += ft_putchar(*(&tc)->str);
 			(&tc)->str++;
 		}
 	}
