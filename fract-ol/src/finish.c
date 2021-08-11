@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 14:58:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/26 14:13:54 by aparolar         ###   ########.fr       */
+/*   Created: 2021/08/02 18:40:57 by aparolar          #+#    #+#             */
+/*   Updated: 2021/08/02 20:03:25 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/fract-ol.h"
 
-int	ft_putchar(char	c)
+void    free_all(t_render *render)
 {
-	return (write(1, &c, 1));
+    mlx_destroy_image(render->vars.mlx, render->img.img);
+    mlx_destroy_window(render->vars.mlx, render->vars.win);
+    free(render->vars.mlx);
 }

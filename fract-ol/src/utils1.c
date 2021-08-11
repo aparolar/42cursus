@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 14:58:36 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/26 14:13:54 by aparolar         ###   ########.fr       */
+/*   Created: 2021/07/29 17:22:42 by aparolar          #+#    #+#             */
+/*   Updated: 2021/07/30 12:26:27 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/fract-ol.h"
 
-int	ft_putchar(char	c)
+void	mlx_pixel_put_ex(t_data *data, int x, int y, int color)
 {
-	return (write(1, &c, 1));
+	char	*dst;
+
+	dst = data->addr;
+	dst += (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

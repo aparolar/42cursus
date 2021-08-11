@@ -1,9 +1,0 @@
-top | grep minishell
-cat | grep
-< test >> test cat -e
-echo "$a"'$a'$a
-ls | cat -e | wc
-echo -n -n -n -n -n -n -n -n -n hola
-echo -n-n-n-n-n-n-n-n-n hola
-echo -----------n hola
-echo $SHLVL
