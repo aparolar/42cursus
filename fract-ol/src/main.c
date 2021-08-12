@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:59:21 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/09 22:54:28 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 13:20:36 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	print_options()
 {
 	ft_putstr("error: invalid option.\n");
-	ft_putstr("Please, choise de correct option from de list.\n");
+	ft_putstr("Please, choise a correct option from de list.\n");
 	ft_putstr("\t1 : Julia\n");
 	ft_putstr("\t2 : Mandelbrot\n");
 }
@@ -45,9 +45,10 @@ static void pre_init_graphics(t_render *render)
 	render->h = 800;
 	render->posx = 0.0f;
 	render->posy = 0.0f;
-	render->last_posx = 0;
-	render->last_posy = 0;
+	render->iter = 300;
 	render->zoom = 1.0f;
+	render->c.real = -0.74f;
+	render->c.imag = 0.27015f;
 	render->color = 0;
 	render->type = 0;
 	render->vars.mlx = mlx_init();
@@ -74,7 +75,6 @@ static int	init_graphics(int fractal_type)
 		mlx_hook((&render)->vars.win, 4, 1L << 2, mouse_hook, &render);
 		render_next_frame(&render);
 		mlx_loop((&render)->vars.mlx);
-		printf("Ending\n");
 	}
 	return (0);
 }
