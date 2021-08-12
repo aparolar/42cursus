@@ -6,18 +6,18 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 13:10:14 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:29:42 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:30 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
 int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-int create_color(int i)
+int	create_color(int i)
 {
 	int	r;
 	int	g;

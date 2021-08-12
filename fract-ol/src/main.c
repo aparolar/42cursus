@@ -6,13 +6,13 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:59:21 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 13:20:36 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:31 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
-static void	print_options()
+static void	print_options(void)
 {
 	ft_putstr("error: invalid option.\n");
 	ft_putstr("Please, choise a correct option from de list.\n");
@@ -20,7 +20,7 @@ static void	print_options()
 	ft_putstr("\t2 : Mandelbrot\n");
 }
 
-static int check_params(int argc, char **argv)
+static int	check_params(int argc, char **argv)
 {
 	if (argc < 2)
 	{	
@@ -39,7 +39,7 @@ static int check_params(int argc, char **argv)
 	}
 }
 
-static void pre_init_graphics(t_render *render)
+static void	pre_init_graphics(t_render *render)
 {
 	render->w = 1400;
 	render->h = 800;
@@ -55,10 +55,10 @@ static void pre_init_graphics(t_render *render)
 	if (render->vars.mlx)
 	{
 		render->vars.win = mlx_new_window(
-						render->vars.mlx,
-						render->w,
-						render->h,
-						"Frac-oool!");
+				render->vars.mlx,
+				render->w,
+				render->h,
+				"Frac-oool!");
 		new_image(&render->img, &render->vars, render->w, render->h);
 	}
 }
@@ -85,6 +85,5 @@ int	main(int argc, char **argv)
 	{
 		ft_putstr("error: cannot initialize graphics.");
 	}
-	//printf("%d\n", system("valgrind -s ./fract_ol 1"));
 	return (0);
 }

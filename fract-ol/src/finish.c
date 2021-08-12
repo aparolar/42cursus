@@ -6,15 +6,15 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:40:57 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/02 20:03:25 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:29 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
-void    free_all(t_render *render)
+void	free_all(t_render *render)
 {
-    mlx_destroy_image(render->vars.mlx, render->img.img);
-    mlx_destroy_window(render->vars.mlx, render->vars.win);
-    free(render->vars.mlx);
+	mlx_destroy_image(render->vars.mlx, render->img.img);
+	mlx_destroy_window(render->vars.mlx, render->vars.win);
+	free(render->vars.mlx);
 }

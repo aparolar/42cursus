@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.h                                         :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:16:38 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:32:16 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:50:22 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACT_OL_H
-#define FRACT_OL_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
-#include "../lib/libft/libft.h"
-#include "../lib/minilibx-linux/mlx.h"
-#include "../lib/minilibx-linux/mlx_int.h"
-#include "lmkeycodes.h"
-#include <math.h>
-#include <stdio.h>
+# include "../lib/libft/libft.h"
+# include "../lib/minilibx-linux/mlx.h"
+# include "../lib/minilibx-linux/mlx_int.h"
+# include "lmkeycodes.h"
+# include <math.h>
+# include <stdio.h>
 
-typedef struct	s_complex
+typedef struct s_complex
 {
-		double	real;
-		double	imag;
-}				t_complex;
+	double	real;
+	double	imag;
+}			t_complex;
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
-}				t_vars;
+}			t_vars;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}			t_data;
 
-typedef struct	s_render
+typedef struct s_render
 {
 	int			w;
 	int			h;
@@ -74,7 +74,7 @@ int		main_key_hook(int keycode, t_render *render);
 int		mouse_hook(int button, int x, int y, t_render *render);
 int		render_next_frame(void *render);
 void	free_all(t_render *render);
-void    julia(t_render *tr, int x, int y);
-void    mandelbrot(t_render *tr, int x, int y);
+void	julia(t_render *tr, int x, int y);
+void	mandelbrot(t_render *tr, int x, int y);
 
 #endif

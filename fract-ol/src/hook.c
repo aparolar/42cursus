@@ -6,11 +6,11 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 13:55:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:10:57 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:33 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
 static void	key_move(int keycode, t_render *render)
 {
@@ -68,27 +68,27 @@ int	mouse_hook(int button, int x, int y, t_render *render)
 	return (0);
 }
 
-int render_next_frame(void *render)
+int	render_next_frame(void *render)
 {
 	t_render	*tr;
-	int	x;
-	int	y;
+	int			x;
+	int			y;
 
 	tr = (t_render *)render;
 	mlx_do_sync(tr->vars.mlx);
 	y = 0;
 	while (y < tr->h)
 	{
-			x = 0;
-			while (x < tr->w)
-			{
-				if (tr->type == 1)
-					julia(render, x, y);
-				else
-					mandelbrot(render, x, y);
-				x++;
-			}
-			y++;
+		x = 0;
+		while (x < tr->w)
+		{
+			if (tr->type == 1)
+				julia(render, x, y);
+			else
+				mandelbrot(render, x, y);
+			x++;
+		}
+		y++;
 	}
 	mlx_put_image_to_window(tr->vars.mlx, tr->vars.win, tr->img.img, 0, 0);
 	return (0);

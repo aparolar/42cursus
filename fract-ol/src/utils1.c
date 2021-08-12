@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aparolar <aparolar@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 17:22:42 by aparolar          #+#    #+#             */
-/*   Updated: 2021/07/30 12:26:27 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:18 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
 void	mlx_pixel_put_ex(t_data *data, int x, int y, int color)
 {

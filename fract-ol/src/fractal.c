@@ -6,18 +6,18 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 12:30:02 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:27:10 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 14:48:32 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract-ol.h"
+#include "../inc/fractol.h"
 
-void    julia(t_render *tr, int x, int y)
+void	julia(t_render *tr, int x, int y)
 {
 	t_complex	z;
 	int			count;
 	double		tx;
-	
+
 	z.real = 1.5 * (x - tr->w / 2);
 	z.real = z.real / (0.4 * tr->zoom * tr->w);
 	z.real += tr->posx;
@@ -35,12 +35,12 @@ void    julia(t_render *tr, int x, int y)
 	mlx_pixel_put_ex(&tr->img, x, y, create_color(count));
 }
 
-void    mandelbrot(t_render *tr, int x, int y)
+void	mandelbrot(t_render *tr, int x, int y)
 {
 	t_complex	z;
 	int			count;
 	float		tx;
-	
+
 	tr->posx = -0.3;
 	tr->c.real = 1.5 * (x - tr->w / 2);
 	tr->c.real = tr->c.real / (0.4 * tr->zoom * tr->w);
