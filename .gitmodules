@@ -1,0 +1,3 @@
+[submodule "fract-ol/libft"]
+	path = fract-ol/libft
+	url = git@github.com:aparolar/libft.git
